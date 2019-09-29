@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+
+    <a class="navbar-brand" href="/">Vintage Video Games</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+        <div *ngIf="loggedIn; then in else loggedOut"></div>
+        <ng-template #in>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="cart">
+              Cart
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="userAccount">
+              Account
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="logout">
+              Logout
+            </a>
+          </li>
+        </ng-template>
+        <ng-template #loggedOut>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="login">
+              <h4>Login</h4>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="register">
+              <h4>Register</h4>
+            </a>
+          </li>          
+        </ng-template>  
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

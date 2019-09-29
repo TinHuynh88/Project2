@@ -1,0 +1,10 @@
+section {
+  margin: 8rem;
+}
+
+#hero-area {
+  padding: 2em;
+  color:black;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+ }

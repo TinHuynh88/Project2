@@ -1,0 +1,5 @@
+* {
+  /* if this causes problems, override it with content-box in the element that needs it */
+  box-sizing: border-box;
+  text-align: center;
+}
