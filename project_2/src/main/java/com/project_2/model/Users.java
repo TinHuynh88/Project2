@@ -1,5 +1,6 @@
 package com.project_2.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,49 +9,50 @@ import javax.persistence.Table;
 @Table
 public class Users {
 	@Id
-	private String username;
+	private String userName;
 	private String password;
+	@Column(unique=true)
 	private String email;
-	private String first_name;
-	private String last_name;
+	private String firstName;
+	private String lastName;
 	private String address;
 	private String phone;
-	private String security_question;
-	private String security_answer;
+	private String securityQuestion;
+	private String securityAnswer;
 	private String role;
 	@Override
 	public String toString() {
-		return "Users [username=" + username + ", password=" + password + ", email=" + email + ", first_name="
-				+ first_name + ", last_name=" + last_name + ", address=" + address + ", phone=" + phone
-				+ ", security_question=" + security_question + ", security_answer=" + security_answer + ", role=" + role
+		return "Users [userName=" + userName + ", password=" + password + ", email=" + email + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", address=" + address + ", phone=" + phone
+				+ ", securityQuestion=" + securityQuestion + ", securityAnswer=" + securityAnswer + ", role=" + role
 				+ "]";
 	}
 	
 	public Users() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Users(String username, String password, String email, String first_name, String last_name, String address,
-			String phone, String security_question, String security_answer, String role) {
+	
+	public Users(String userName, String password, String email, String firstName, String lastName, String address,
+			String phone, String securityQuestion, String securityAnswer, String role) {
 		super();
-		this.username = username;
+		this.userName = userName;
 		this.password = password;
 		this.email = email;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
-		this.security_question = security_question;
-		this.security_answer = security_answer;
+		this.securityQuestion = securityQuestion;
+		this.securityAnswer = securityAnswer;
 		this.role = role;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -69,20 +71,20 @@ public class Users {
 		this.email = email;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getAddress() {
@@ -101,20 +103,20 @@ public class Users {
 		this.phone = phone;
 	}
 
-	public String getSecurity_question() {
-		return security_question;
+	public String getSecurityQuestion() {
+		return securityQuestion;
 	}
 
-	public void setSecurity_question(String security_question) {
-		this.security_question = security_question;
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
 	}
 
-	public String getSecurity_answer() {
-		return security_answer;
+	public String getSecurityAnswer() {
+		return securityAnswer;
 	}
 
-	public void setSecurity_answer(String security_answer) {
-		this.security_answer = security_answer;
+	public void setSecurityAnswer(String securityAnswer) {
+		this.securityAnswer = securityAnswer;
 	}
 
 	public String getRole() {
@@ -124,5 +126,8 @@ public class Users {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	
+	
 	
 }

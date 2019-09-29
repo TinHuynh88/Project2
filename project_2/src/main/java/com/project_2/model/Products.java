@@ -5,44 +5,42 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Products {
 	@Id
-	@GeneratedValue
-	private long product_id;
-	private String product_name;
-	private double product_price;
-	private Date release_date;
+	@GeneratedValue	
+	private long productId;
+	private String productName;
+	private double productPrice;
+	private Date releaseDate;
 	private String category;
 	private int quantity;
 	private float rating;
 	private String system;
 	private String picture;
-
-	
 	@Override
 	public String toString() {
-		return "Products [product_id=" + product_id + ", product_name=" + product_name + ", product_price="
-				+ product_price + ", release_date=" + release_date + ", category=" + category + ", quantity=" + quantity
-				+ ", rating=" + rating + ", system=" + system + ", picture=" + picture + "]";
+		return "Products [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
+				+ ", releaseDate=" + releaseDate + ", category=" + category + ", quantity=" + quantity + ", rating="
+				+ rating + ", system=" + system + ", picture=" + picture + "]";
 	}
-
 
 	public Products() {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Products(long product_id, String product_name, double product_price, Date release_date, String category,
+	public Products(long productId, String productName, double productPrice, Date releaseDate, String category,
 			int quantity, float rating, String system, String picture) {
 		super();
-		this.product_id = product_id;
-		this.product_name = product_name;
-		this.product_price = product_price;
-		this.release_date = release_date;
+		this.productId = productId;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.releaseDate = releaseDate;
 		this.category = category;
 		this.quantity = quantity;
 		this.rating = rating;
@@ -50,95 +48,80 @@ public class Products {
 		this.picture = picture;
 	}
 
-
-	public long getProduct_id() {
-		return product_id;
+	public long getProductId() {
+		return productId;
 	}
 
-
-	public void setProduct_id(long product_id) {
-		this.product_id = product_id;
+	public void setProductId(long productId) {
+		this.productId = productId;
 	}
 
-
-	public String getProduct_name() {
-		return product_name;
+	public String getProductName() {
+		return productName;
 	}
 
-
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-
-	public double getProduct_price() {
-		return product_price;
+	public double getProductPrice() {
+		return productPrice;
 	}
 
-
-	public void setProduct_price(double product_price) {
-		this.product_price = product_price;
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
 	}
 
-
-	public Date getRelease_date() {
-		return release_date;
+	public Date getReleaseDate() {
+		return releaseDate;
 	}
 
-
-	public void setRelease_date(Date release_date) {
-		this.release_date = release_date;
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
 	}
-
 
 	public String getCategory() {
 		return category;
 	}
 
-
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
 
 	public int getQuantity() {
 		return quantity;
 	}
 
-
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
 
 	public float getRating() {
 		return rating;
 	}
 
-
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-
 
 	public String getSystem() {
 		return system;
 	}
 
-
 	public void setSystem(String system) {
 		this.system = system;
 	}
-
 
 	public String getPicture() {
 		return picture;
 	}
 
-
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
+	
+	
+	
 	
 
 }
