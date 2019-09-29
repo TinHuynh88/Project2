@@ -33,6 +33,12 @@ public class Products {
 	public Products() {
 		
 	}
+	
+	private void Syso() {
+		// TODO Auto-generated method stub
+
+	}
+	
 
 	public Products(long productId, String productName, double productPrice, Date releaseDate, String category,
 			int quantity, float rating, String system, String picture) {
