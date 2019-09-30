@@ -17,6 +17,12 @@ import { CartComponent } from './cart/cart.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminCreateProductComponent } from './admin-create-product/admin-create-product.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
+import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +40,12 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
     CartComponent,
     OrderConfirmationComponent,
     OrderSuccessComponent,
-    UserOrdersComponent
+    UserOrdersComponent,
+    AdminLoginComponent,
+    AdminCreateProductComponent,
+    AdminHomeComponent,
+    AdminSearchUsersComponent,
+    AdminSearchProductsComponent
   ],
   imports: [
     BrowserModule,

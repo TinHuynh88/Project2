@@ -14,24 +14,34 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ChangePasswordSuccessComponent } from './change-password-success/change-password-success.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomeComponent } from './home/home.component';
+import { AdminCreateProductComponent } from './admin-create-product/admin-create-product.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
+import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo: '/', pathMatch: 'full'},
+  {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path:'cart',component:CartComponent},
   {path:'changePassword',component:ChangePasswordComponent},
   {path:'changePasswordSuccess',component:ChangePasswordSuccessComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},
   {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent},
+  {path:'home/login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
   {path:'logoutConfirm',component:LogoutConfirmComponent},
   {path:'orderConfirmation',component:OrderConfirmationComponent},
   {path:'orderSuccess',component:OrderSuccessComponent},
-  {path:'register',component:RegisterComponent},
+  {path:'home/register',component:RegisterComponent},
   {path:'registerSuccess',component:RegisterSuccessComponent},
   {path:'userAccount',component:UserAccountComponent},
-  {path:'userOrders',component:UserOrdersComponent} 
+  {path:'userOrders',component:UserOrdersComponent},
+  {path:'adminCreateProduct',component:AdminCreateProductComponent},
+  {path:'adminHome',component:AdminHomeComponent},
+  {path:'adminLogin', component:AdminLoginComponent},
+  {path:'adminSearchProducts',component:AdminSearchProductsComponent},
+  {path:'adminSearchUsers',component:AdminSearchUsersComponent}
 ];
 
 @NgModule({
