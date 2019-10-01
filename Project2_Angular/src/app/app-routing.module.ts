@@ -23,6 +23,7 @@ import { AdminSearchUsersComponent } from './admin-search-users/admin-search-use
 
 const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch: 'full'},
+
   {path:'home',component:HomeComponent, children: [
     {path:'login',component:LoginComponent},
     {path:'logout',component:LogoutComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
     {path:'SearchUsers',component:AdminSearchUsersComponent},
     {path:'adminCreateProduct',component:AdminCreateProductComponent},
   ]}
+
 ];
 
 @NgModule({
