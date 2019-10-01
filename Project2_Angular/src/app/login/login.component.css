@@ -315,7 +315,7 @@ input[type=text]:placeholder {
     }
 
 #containerform{
-  border: 1em groove rgba(98, 100, 100, 0.548);
+  border: .25em solid rgba(98, 100, 100, 0.548);
 }
 
 
