@@ -1,5 +1,4 @@
-export class Users {
-
+export class User {
   private userName:string;
   private password:string;
   private email:string;
@@ -10,5 +9,4 @@ export class Users {
   private securityQuestion:string;
   private securityAnswer:string;
   private role:string;
-
 }
