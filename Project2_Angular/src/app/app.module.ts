@@ -22,6 +22,7 @@ import { AdminCreateProductComponent } from './admin-create-product/admin-create
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AdminSearchProductsComponent } from './admin-search-products/admin-sear
     AdminCreateProductComponent,
     AdminHomeComponent,
     AdminSearchUsersComponent,
-    AdminSearchProductsComponent
+    AdminSearchProductsComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,
