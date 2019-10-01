@@ -1,12 +1,12 @@
 import { Transactions } from './transactions';
-import { Products } from './products';
+import { Product } from './product';
 
 export class Orders {
 
-  private transaction:Transactions;
-  private product:Products;
-  private quantitySold:number;
-  private totalUnitPrice:number;
+  private transaction: Transactions;
+  private product: Product;
+  private quantitySold: number;
+  private totalUnitPrice: number;
 
 }
 
