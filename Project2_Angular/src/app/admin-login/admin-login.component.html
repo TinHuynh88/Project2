@@ -10,26 +10,33 @@
         <div  class="animated animatedFadeInUp fadeInUp" data-wow-delay=".3s">
             <div align="center">
               <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-                <form class="login100-form validate-form" action="adminLogin" method="post" onsubmit="return isValidUser()">
+                <form class="login100-form validate-form" (ngSubmit)="adminLogin()" #userForm="ngForm">
                   <span class="login100-form-title p-b-33"> Account Login
                   </span>
                   <div class="wrap-input100 validate-input" data-validate="User is required">
-                    <input class="input100" type="text" name="userName" placeholder="Username" required> 
+                    <input class="input100" type="text" name="userName" placeholder="Username" value="" [(ngModel)]="user.userName"/> 
                     <span
                       class="focus-input100-1"></span>
                     <span class="focus-input100-2"></span>
                   </div>
+                  <div  class="input100"  style="color: red;" >
+                    {{ usernameMessage }}
+                  </div>
                   <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="password" placeholder="Password" required> 
+                    <input class="input100" type="password" name="password" placeholder="Password" value="" [(ngModel)]="user.password"/> 
                     <span
                       class="focus-input100-1"></span> <span class="focus-input100-2"></span>
+                  </div>
+                  <div class="input100"   style="color: red;" >
+                    {{ passwordMessage }}
+                  </div>
+                  <div style="color: red;" >
+                    {{ errMessage }}
                   </div>
                   <div class="container-login100-form-btn m-t-20">
                     <button class="login100-form-btn">Sign in</button>
                   </div>
-                  <div class="text-center">
-                    <span id="errMessage" style="color: red;"> </span>
-                  </div>
+                  
                 </form>
               </div>
             </div>

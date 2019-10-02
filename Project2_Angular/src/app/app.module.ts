@@ -22,7 +22,8 @@ import { AdminCreateProductComponent } from './admin-create-product/admin-create
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { AdminSearchProductsComponent } from './admin-search-products/admin-sear
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
