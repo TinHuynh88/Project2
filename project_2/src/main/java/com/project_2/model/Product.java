@@ -5,13 +5,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
-public class Products {
+public class Product {
 	@Id
 	@GeneratedValue	
 	private long productId;
@@ -30,11 +28,11 @@ public class Products {
 				+ rating + ", system=" + system + ", picture=" + picture + "]";
 	}
 
-	public Products() {
+	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Products(long productId, String productName, double productPrice, Date releaseDate, String category,
+	public Product(long productId, String productName, double productPrice, Date releaseDate, String category,
 			int quantity, float rating, String system, String picture) {
 		super();
 		this.productId = productId;

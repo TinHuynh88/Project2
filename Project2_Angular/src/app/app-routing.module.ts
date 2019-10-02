@@ -19,12 +19,14 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo: 'home', pathMatch: 'full'},
-
-  {path:'home',component:HomeComponent, children: [
+  {path:'', redirectTo: 'home/products', pathMatch: 'full'},
+  {path:'home', redirectTo: 'home/products', pathMatch: 'full'},
+  {path:'home',component:HomeComponent, children: [    
+    {path:'products',component:ProductPageComponent},
     {path:'login',component:LoginComponent},
     {path:'logout',component:LogoutComponent},
     {path:'logoutConfirm',component:LogoutConfirmComponent},
