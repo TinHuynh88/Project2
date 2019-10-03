@@ -12,31 +12,25 @@ import org.springframework.stereotype.Indexed;
 @Table
 @Indexed
 public class ProductPictures {
-	
-	
+
 	@Id
 	@GeneratedValue
 	private long pictureId;
 	private String pictureURL;
-	
-	@JoinColumn(name="productId")
-	private long productId;
-	
+
 	@Override
 	public String toString() {
-		return "ProductPictures [pictureId=" + pictureId + ", pictureURL=" + pictureURL + ", productId=" + productId
-				+ "]";
+		return "ProductPictures [pictureId=" + pictureId + ", pictureURL=" + pictureURL + "]";
 	}
-	
+
 	public ProductPictures() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductPictures(long pictureId, String pictureURL, long productId) {
+	public ProductPictures(long pictureId, String pictureURL) {
 		super();
 		this.pictureId = pictureId;
 		this.pictureURL = pictureURL;
-		this.productId = productId;
 	}
 
 	public long getPictureId() {
@@ -53,14 +47,6 @@ public class ProductPictures {
 
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
-	}
-
-	public long getProductId() {
-		return productId;
-	}
-
-	public void setProductId(long productId) {
-		this.productId = productId;
 	}
 
 }
