@@ -1,6 +1,7 @@
 package com.project_2.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Product {
+public class Products {
 	@Id
 	@GeneratedValue	
 	private long productId;
@@ -21,20 +22,21 @@ public class Product {
 	private int quantity;
 	private float rating;
 	private String system;
-	private String picture;
+	private List<String> pictures;
+
 	@Override
 	public String toString() {
-		return "Products [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
+		return "Product [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", releaseDate=" + releaseDate + ", category=" + category + ", quantity=" + quantity + ", rating="
-				+ rating + ", system=" + system + ", picture=" + picture + "]";
+				+ rating + ", system=" + system + ", pictures=" + pictures + "]";
 	}
 
-	public Product() {
+	public Products() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(long productId, String productName, double productPrice, Date releaseDate, String category,
-			int quantity, float rating, String system, String picture) {
+	public Products(long productId, String productName, double productPrice, Date releaseDate, String category,
+			int quantity, float rating, String system, List<String> pictures) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -44,7 +46,7 @@ public class Product {
 		this.quantity = quantity;
 		this.rating = rating;
 		this.system = system;
-		this.picture = picture;
+		this.pictures = pictures;
 	}
 
 	public long getProductId() {
@@ -111,16 +113,12 @@ public class Product {
 		this.system = system;
 	}
 
-	public String getPicture() {
-		return picture;
+	public List<String> getPictures() {
+		return pictures;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setPictures(List<String> pictures) {
+		this.pictures = pictures;
 	}
-	
-	
-	
-	
 
 }
