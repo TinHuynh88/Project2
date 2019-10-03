@@ -21,7 +21,7 @@ public class Order {
 	@Id
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="productId")
-	private Product product;
+	private Products products;
 	 
 	private int quantitySold;
 	
@@ -30,7 +30,7 @@ public class Order {
 	
 	@Override
 	public String toString() {
-		return "Orders [transaction=" + transaction + ", product=" + product + ", quantitySold=" + quantitySold
+		return "Orders [transaction=" + transaction + ", products=" + products + ", quantitySold=" + quantitySold
 				+ ", totalUnitPrice=" + totalUnitPrice + "]";
 	}
 
@@ -40,10 +40,10 @@ public class Order {
 	}
 
 
-	public Order(Transaction transaction, Product product, int quantitySold, double totalUnitPrice) {
+	public Order(Transaction transaction, Products products, int quantitySold, double totalUnitPrice) {
 		super();
 		this.transaction = transaction;
-		this.product = product;
+		this.products = products;
 		this.quantitySold = quantitySold;
 		this.totalUnitPrice = totalUnitPrice;
 	}
@@ -59,13 +59,13 @@ public class Order {
 	}
 
 
-	public Product getProduct() {
-		return product;
+	public Products getProduct() {
+		return products;
 	}
 
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProduct(Products products) {
+		this.products = products;
 	}
 
 
