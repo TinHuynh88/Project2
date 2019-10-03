@@ -12,7 +12,8 @@ import { Project2Service } from '../project2.service';
 export class AdminHomeComponent implements OnInit {
 
   session:string[];
-  constructor(private project2Service: Project2Service,private router:Router) { 
+  constructor(private project2Service:Project2Service,private router:Router) {
+   // let x= getProjectService()
     this.project2Service.getSession().subscribe(data=>{
       this.session=data;
       if(this.session==null){
