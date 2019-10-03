@@ -80,9 +80,10 @@ public class AdminController {
 	}
 	
 	@GetMapping("/adminUser/{username}")
-	public void getUserByUsername(@PathVariable String username) {
+	public User getUserByUsername(@PathVariable String username) {
 		System.out.println("Delete: "+username);
-		service.getUserByName(username);
+		User user=service.getUserByName(username);
+		return user;
 	}
 	
 	public String encryptPassword(String password) {
