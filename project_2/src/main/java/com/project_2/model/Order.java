@@ -1,61 +1,71 @@
 package com.project_2.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
+import org.springframework.stereotype.Indexed;
+
+//@Entity
 @Table
-public class Orders {
+@Indexed
+public class Order {
 	@Id
-	@ManyToOne
-	private Transactions transaction;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="transactionId")
+	private Transaction transaction;
+	
 	@Id
-	@ManyToOne
-	private Products product;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="productId")
+	private Products products;
+	 
 	private int quantitySold;
+	
 	private double totalUnitPrice;
 	
 	
 	@Override
 	public String toString() {
-		return "Orders [transaction=" + transaction + ", product=" + product + ", quantitySold=" + quantitySold
+		return "Orders [transaction=" + transaction + ", products=" + products + ", quantitySold=" + quantitySold
 				+ ", totalUnitPrice=" + totalUnitPrice + "]";
 	}
 
 
-	public Orders() {
+	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Orders(Transactions transaction, Products product, int quantitySold, double totalUnitPrice) {
+	public Order(Transaction transaction, Products products, int quantitySold, double totalUnitPrice) {
 		super();
 		this.transaction = transaction;
-		this.product = product;
+		this.products = products;
 		this.quantitySold = quantitySold;
 		this.totalUnitPrice = totalUnitPrice;
 	}
 
 
-	public Transactions getTransaction() {
+	public Transaction getTransaction() {
 		return transaction;
 	}
 
 
-	public void setTransaction(Transactions transaction) {
+	public void setTransaction(Transaction transaction) {
 		this.transaction = transaction;
 	}
 
 
 	public Products getProduct() {
-		return product;
+		return products;
 	}
 
 
-	public void setProduct(Products product) {
-		this.product = product;
+	public void setProduct(Products products) {
+		this.products = products;
 	}
 
 
