@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.project_2.dao.UserDAO;
 import com.project_2.model.User;
-import com.project_2.service.Project_2Service;
+import com.project_2.service.AdminUsersService;
 
 @Service
-public class Project_2ServiceImpl implements Project_2Service {
+public class AdminUsersServiceImpl implements AdminUsersService {
 
 	@Autowired //auto create object
 	private UserDAO userDao;

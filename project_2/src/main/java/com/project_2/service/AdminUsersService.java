@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.project_2.model.User;
 
-public interface Project_2Service {
+public interface AdminUsersService {
 
 	// User page HERE
 	public User createUser(User user);

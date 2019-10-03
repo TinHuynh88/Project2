@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project_2.model.User;
-import com.project_2.service.Project_2Service;
+import com.project_2.service.AdminUsersService;
 
 @CrossOrigin 
 @RestController
 public class UserController {
 	@Autowired
-	private Project_2Service service;
+	private AdminUsersService service;
 	
 	@PostMapping("/createUser") 
 	public User createUser(@RequestBody User user) {
