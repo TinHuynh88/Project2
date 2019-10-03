@@ -1,3 +1,4 @@
+
 package com.project_2.controller;
 
 import java.util.ArrayList;
@@ -16,41 +17,38 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project_2.model.Transaction;
 import com.project_2.model.User;
-import com.project_2.service.Project_2Service;
+import com.project_2.service.AdminUsersService;
+
 
 @CrossOrigin
 @RestController
 public class AdminController {
 	@Autowired
-	private Project_2Service service;
+	private AdminUsersService service;
 
 	@Autowired
 	private HttpServletRequest request;
-//	@Autowired 
+ 
 	private HttpSession httpSession;
 
 	@GetMapping("/getSession")
 	public List<String> getSessions() {
-
 		try {
 			@SuppressWarnings("unchecked")
 			List<String> messages = (List<String>) httpSession.getAttribute("USERNAME_SESSION");
-			System.out.println("session = " + httpSession.getId());
-			System.out.println("Test getSession:" + messages);
+//			System.out.println("session = " + httpSession.getId());
+//			System.out.println("Test getSession:" + messages);
 			return messages;
 		} catch (Exception e) {
 			return null;
 		}
-
 	}
 
 	@PostMapping("/adminLogin")
 	public User adminLogin(@RequestBody User user) {
-
 		List<String> messages = new ArrayList<>();
-//			System.out.println("---------------\nTest session login:"+messages);
-
 		User user1 = service.adminLogin(user);
 		if (user1 != null) {
 			messages.add(user1.getUserName());
@@ -71,5 +69,11 @@ public class AdminController {
 		} else {
 			System.out.println("admin home session: " + messages);
 		}
+	}
+	
+	@PostMapping("/adminCreateTransaction")
+	public Transaction adminCreateTransaction() {
+		Transaction transaction=null;
+		return transaction;
 	}
 }
