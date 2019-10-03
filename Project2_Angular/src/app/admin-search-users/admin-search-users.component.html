@@ -1,1 +1,55 @@
-<p>admin-search-users works!</p>
+<br>
+<br>
+<br>
+<section class="moduler wrapper_404">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <input type="text" class="form-control" id="search" name="search"
+            placeholder="Enter user Infomation like username, email, name, address, phone.. to search">
+          <hr>
+          <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
+          <button type="button" class="btn-info" name="userSearch"  id="showTable" >
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+     
+          <hr>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="footer copyright">
+          <table cellpadding="0" id="productTable" width=100%>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Question</th>
+              <th scope="col">Answer</th>
+              <th scope="col">Delete</th>
+            </tr>
+            <tr *ngFor="let u of userList">
+                <td>{{u.userName}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.firstName}}</td>
+                <td>{{u.lastName}}</td>
+                <td>{{u.address}}</td>
+                <td>{{u.securityQuestion}}</td>
+                <td>{{u.securityAnswer}}</td>
+                <td><button (click)="deleteByUsername(u)">Delete</button></td>
+            </tr>
+          </table>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
