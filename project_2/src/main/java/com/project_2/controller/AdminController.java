@@ -1,6 +1,7 @@
 
 package com.project_2.controller;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class AdminController {
 	@PostMapping("/adminLogin")
 	public User adminLogin(@RequestBody User user) {
 		List<String> messages = new ArrayList<>();
+		user.setPassword(encryptPassword(user.getPassword()));
 		User user1 = service.adminLogin(user);
 		if (user1 != null) {
 			messages.add(user1.getUserName());
@@ -71,9 +73,35 @@ public class AdminController {
 		}
 	}
 	
-	@PostMapping("/adminCreateTransaction")
-	public Transaction adminCreateTransaction() {
-		Transaction transaction=null;
-		return transaction;
+	@DeleteMapping("/adminUser/{username}")
+	public void deleteUserByUsername(@PathVariable String username) {
+		System.out.println("Delete: "+username);
+		service.adminUserDelete(username);
+	}
+	
+	@GetMapping("/adminUser/{username}")
+	public User getUserByUsername(@PathVariable String username) {
+		System.out.println("Delete: "+username);
+		User user=service.getUserByName(username);
+		return user;
+	}
+	
+	public String encryptPassword(String password) {
+		StringBuffer message = new StringBuffer();
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-1");
+			byte[] hash = md.digest(password.getBytes("UTF-8"));
+
+			for (byte w : hash) {
+				message.append(String.format("%02x", w));
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return message.toString();
+
 	}
 }

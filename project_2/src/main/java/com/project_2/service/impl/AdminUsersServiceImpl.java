@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project_2.dao.UserDAO;
+import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
 
@@ -39,4 +40,16 @@ public class AdminUsersServiceImpl implements AdminUsersService {
 		return userDao.findAll();
 	}
 
+	@Override
+	public void adminUserDelete(String userName) {
+		userDao.deleteById(userName);
+		
+	}
+
+	@Override
+	public User getUserByName(String userName) {
+		return userDao.findById(userName).get();
+	}
+
+	
 }
