@@ -1,22 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
 import { Router } from '@angular/router';
 import { Project2Service } from '../project2.service';
 
-
 @Component({
-  selector: 'app-admin-home',
-  templateUrl: './admin-home.component.html',
-  styleUrls: ['./admin-home.component.css']
+  selector: 'app-admin-search-transactions',
+  templateUrl: './admin-search-transactions.component.html',
+  styleUrls: ['./admin-search-transactions.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminSearchTransactionsComponent implements OnInit {
 
   session:string[];
-  constructor(private project2Service:Project2Service,private router:Router) {
-  
-   
-    
-  }
+  constructor(private project2Service:Project2Service,private router:Router) { }
 
   ngOnInit() {
     this.project2Service.getSession().subscribe(data=>{
@@ -28,4 +22,3 @@ export class AdminHomeComponent implements OnInit {
   }
 
 }
-
