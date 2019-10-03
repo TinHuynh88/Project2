@@ -10,14 +10,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Transactions {
+public class Transaction {
 	@Id
 	@GeneratedValue
 	private long transactionId;
 	private Date transactionDate;
 	private double transactionPrice;
 	@ManyToOne
-	private Users user;
+	private User user;
 	
 	@Override
 	public String toString() {
@@ -25,11 +25,11 @@ public class Transactions {
 				+ ", transactionPrice=" + transactionPrice + ", user=" + user + "]";
 	}
 	
-	public Transactions() {
+	public Transaction() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transactions(long transactionId, Date transactionDate, double transactionPrice, Users user) {
+	public Transaction(long transactionId, Date transactionDate, double transactionPrice, User user) {
 		super();
 		this.transactionId = transactionId;
 		this.transactionDate = transactionDate;
@@ -61,11 +61,11 @@ public class Transactions {
 		this.transactionPrice = transactionPrice;
 	}
 
-	public Users getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	

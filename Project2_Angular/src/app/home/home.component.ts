@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from '../forgot-password/forgot-password.comp
 import { RegisterComponent } from '../register/register.component';
 import { CartComponent } from '../cart/cart.component';
 import { UserAccountComponent } from '../user-account/user-account.component';
+import { ProductPageComponent } from '../product-page/product-page.component';
 
 @Component({
   selector: 'home',
@@ -13,18 +14,20 @@ import { UserAccountComponent } from '../user-account/user-account.component';
 })
 export class HomeComponent implements OnInit {
 
-  loggedIn:boolean = false;
+  loggedIn = false;
 
-  title:string = "Vintage Video Games";
-  login:LoginComponent;
-  logout:LogoutComponent;
-  register:RegisterComponent;
-  cart:CartComponent;
-  account:UserAccountComponent;
+  title = 'Vintage Video Games';
+  login: LoginComponent;
+  logout: LogoutComponent;
+  register: RegisterComponent;
+  cart: CartComponent;
+  account: UserAccountComponent;
+  products: ProductPageComponent;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

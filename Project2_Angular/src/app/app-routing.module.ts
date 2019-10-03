@@ -14,24 +14,41 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ChangePasswordSuccessComponent } from './change-password-success/change-password-success.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomeComponent } from './home/home.component';
+import { AdminCreateProductComponent } from './admin-create-product/admin-create-product.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
+import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo: '/', pathMatch: 'full'},
-  {path:'cart',component:CartComponent},
-  {path:'changePassword',component:ChangePasswordComponent},
-  {path:'changePasswordSuccess',component:ChangePasswordSuccessComponent},
-  {path:'forgotPassword',component:ForgotPasswordComponent},
-  {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'logout',component:LogoutComponent},
-  {path:'logoutConfirm',component:LogoutConfirmComponent},
-  {path:'orderConfirmation',component:OrderConfirmationComponent},
-  {path:'orderSuccess',component:OrderSuccessComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'registerSuccess',component:RegisterSuccessComponent},
-  {path:'userAccount',component:UserAccountComponent},
-  {path:'userOrders',component:UserOrdersComponent} 
+  {path:'', redirectTo: 'home/products', pathMatch: 'full'},
+  {path:'home', redirectTo: 'home/products', pathMatch: 'full'},
+  {path:'home',component:HomeComponent, children: [    
+    {path:'products',component:ProductPageComponent},
+    {path:'login',component:LoginComponent},
+    {path:'logout',component:LogoutComponent},
+    {path:'logoutConfirm',component:LogoutConfirmComponent},
+    {path:'register',component:RegisterComponent},
+    {path:'registerSuccess',component:RegisterSuccessComponent},
+    {path:'forgotPassword',component:ForgotPasswordComponent},
+    {path:'changePassword',component:ChangePasswordComponent},
+    {path:'changePasswordSuccess',component:ChangePasswordSuccessComponent},
+    {path:'cart',component:CartComponent},
+    {path:'orderConfirmation',component:OrderConfirmationComponent},
+    {path:'orderSuccess',component:OrderSuccessComponent},
+    {path:'userAccount',component:UserAccountComponent},
+    {path:'userOrders',component:UserOrdersComponent},
+  ]},
+  {path:'adminLogin', component:AdminLoginComponent},
+    {path:'adminHome',component:AdminHomeComponent},
+    
+    {path:'SearchUsers',component:AdminSearchUsersComponent},
+    {path:'adminCreateProduct',component:AdminCreateProductComponent},
+
+  {path:'SearchProducts',component:AdminSearchProductsComponent}
+
 ];
 
 @NgModule({

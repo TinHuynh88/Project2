@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Users {
+public class User {
 	@Id
 	private String userName;
 	private String password;
@@ -28,11 +28,11 @@ public class Users {
 				+ "]";
 	}
 	
-	public Users() {
+	public User() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Users(String userName, String password, String email, String firstName, String lastName, String address,
+	public User(String userName, String password, String email, String firstName, String lastName, String address,
 			String phone, String securityQuestion, String securityAnswer, String role) {
 		super();
 		this.userName = userName;
