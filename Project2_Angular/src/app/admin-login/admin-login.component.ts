@@ -18,14 +18,17 @@ export class AdminLoginComponent {
   usernameMessage: string;
   passwordMessage: string;
 
-  constructor(private project2Service: Project2Service, private router: Router) {
+  constructor(private  project2Service: Project2Service, private router: Router) {
     this.user = new User();
     //  this.error=false;
     this.errMessage = "";
     this.passwordMessage = "";
     this.usernameMessage = "";
-    console.log("test 111: " + this.user.userName);
+  //  console.log("test 111: " + this.user.userName);
   }
+// getProjectService():Project2Service{
+// return this.project2Service;
+//   }
 
   adminLogin() {
     console.log("test: " + this.user.userName);
@@ -44,8 +47,14 @@ export class AdminLoginComponent {
     else {
       this.project2Service.adminLogin(this.user).subscribe(data => {
         this.user1 = data;
-        console.log("test after- " + this.user1);
+        
         if (this.user1 != null) {
+          this.project2Service.getSession().forEach(
+            i=>{
+              console.log("admiL"+i);
+            }
+          );
+          console.log("test after- " + this.user1.userName);
           this.router.navigate(['/adminHome']);
         } else {
           //this.error = true;
@@ -56,3 +65,4 @@ export class AdminLoginComponent {
   }
 
 }
+

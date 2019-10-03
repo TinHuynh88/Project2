@@ -22,13 +22,11 @@ import { AdminCreateProductComponent } from './admin-create-product/admin-create
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
-<<<<<<< HEAD
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-=======
-import { ProductPageComponent } from './product-page/product-page.component';
 
->>>>>>> 1952306e50eedbef04435fa9d2e4fec974620fd1
+import { ProductPageComponent } from './product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -64,3 +62,4 @@ import { ProductPageComponent } from './product-page/product-page.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
