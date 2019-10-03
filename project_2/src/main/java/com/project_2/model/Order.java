@@ -1,20 +1,30 @@
 package com.project_2.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
+import org.springframework.stereotype.Indexed;
+
+//@Entity
 @Table
-public class Orders {
+@Indexed
+public class Order {
 	@Id
-	@ManyToOne
-	private Transactions transaction;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="transactionId")
+	private Transaction transaction;
+	
 	@Id
-	@ManyToOne
-	private Products product;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="productId")
+	private Product product;
+	 
 	private int quantitySold;
+	
 	private double totalUnitPrice;
 	
 	
@@ -25,12 +35,12 @@ public class Orders {
 	}
 
 
-	public Orders() {
+	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Orders(Transactions transaction, Products product, int quantitySold, double totalUnitPrice) {
+	public Order(Transaction transaction, Product product, int quantitySold, double totalUnitPrice) {
 		super();
 		this.transaction = transaction;
 		this.product = product;
@@ -39,22 +49,22 @@ public class Orders {
 	}
 
 
-	public Transactions getTransaction() {
+	public Transaction getTransaction() {
 		return transaction;
 	}
 
 
-	public void setTransaction(Transactions transaction) {
+	public void setTransaction(Transaction transaction) {
 		this.transaction = transaction;
 	}
 
 
-	public Products getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
 
-	public void setProduct(Products product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 

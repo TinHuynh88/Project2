@@ -1,10 +1,10 @@
-import { Users } from './users';
+import { User } from './user';
 
-export class Transactions {
+export class Transaction {
 
   private transactionId:number;
   private transactionDate:Date;
   private transactionPrice:number;
-  private user:Users;
+  private user:User;
 
 }

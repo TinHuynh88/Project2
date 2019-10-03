@@ -41,12 +41,13 @@ const routes: Routes = [
     {path:'userAccount',component:UserAccountComponent},
     {path:'userOrders',component:UserOrdersComponent},
   ]},
-  {path:'adminLogin', component:AdminLoginComponent, children: [
+  {path:'adminLogin', component:AdminLoginComponent},
     {path:'adminHome',component:AdminHomeComponent},
-    {path:'SearchProducts',component:AdminSearchProductsComponent},
+    
     {path:'SearchUsers',component:AdminSearchUsersComponent},
     {path:'adminCreateProduct',component:AdminCreateProductComponent},
-  ]}
+
+  {path:'SearchProducts',component:AdminSearchProductsComponent}
 
 ];
 
