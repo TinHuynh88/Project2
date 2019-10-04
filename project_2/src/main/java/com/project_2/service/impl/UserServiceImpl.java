@@ -1,11 +1,13 @@
 package com.project_2.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project_2.dao.UserDAO;
 import com.project_2.model.User;
 import com.project_2.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -34,7 +36,7 @@ public class UserServiceImpl implements UserService {
 			System.out.println("User is not found -" + user1);
 		}
 
-		return null;
+		return user1;
 	}
 
 }

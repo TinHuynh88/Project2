@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.project_2.service.UserService;
-
+import com.project_2.model.Order;
 import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
@@ -37,6 +37,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service1;
+	
+	@Autowired
+	private TransactionService transactionService;
 	
 	@Autowired
 	private HttpServletRequest request;
@@ -75,11 +78,7 @@ public class UserController {
 	@PostMapping("/userRegister") 
 	public User userRegister(@RequestBody User user) {
 		return service1.userRegister(user);
-
-
-
-	@Autowired
-	private TransactionService transactionService;
+	}
 	
 	@PostMapping("/createUser") 
 	public User createUser(@RequestBody User user) {
@@ -107,6 +106,12 @@ public class UserController {
 		return transactionService.getAllTransactions();
 	}
 	
+    @PostMapping("/createOrder")
+	public Order createOrder (@RequestBody Order order) {
+		// implement here
+		return order;
+	}
+    
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();
 
@@ -127,4 +132,3 @@ public class UserController {
 	}
 
 }
-
