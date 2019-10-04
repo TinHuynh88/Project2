@@ -1,10 +1,7 @@
 
 package com.project_2.controller;
 
-<<<<<<< HEAD
-=======
 import java.security.MessageDigest;
->>>>>>> test-master
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,10 +50,9 @@ public class AdminController {
 	@PostMapping("/adminLogin")
 	public User adminLogin(@RequestBody User user) {
 		List<String> messages = new ArrayList<>();
-<<<<<<< HEAD
-=======
+
 		user.setPassword(encryptPassword(user.getPassword()));
->>>>>>> test-master
+
 		User user1 = service.adminLogin(user);
 		if (user1 != null) {
 			messages.add(user1.getUserName());
@@ -79,12 +75,13 @@ public class AdminController {
 		}
 	}
 	
-<<<<<<< HEAD
+
 	@PostMapping("/adminCreateTransaction")
 	public Transaction adminCreateTransaction() {
 		Transaction transaction=null;
 		return transaction;
-=======
+	}
+
 	@DeleteMapping("/adminUser/{username}")
 	public void deleteUserByUsername(@PathVariable String username) {
 		System.out.println("Delete: "+username);
@@ -115,6 +112,5 @@ public class AdminController {
 
 		return message.toString();
 
->>>>>>> test-master
 	}
 }
