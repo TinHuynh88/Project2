@@ -107,6 +107,12 @@ public class UserController {
 		return transactionService.getAllTransactions();
 	}
 	
+    @PostMapping("/createOrder")
+	public Order createOrder (@RequestBody Order order) {
+		// implement here
+		return order;
+	}
+    
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();
 
@@ -127,4 +133,3 @@ public class UserController {
 	}
 
 }
-
