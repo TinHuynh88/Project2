@@ -12,10 +12,14 @@ public class Project2ApplicationTests {
 	@Test
 	public void contextLoads() {
 <<<<<<< HEAD
+//test
+=======
+<<<<<<< HEAD
 		//aaaa
 =======
 //test
 >>>>>>> a119681caadcd0baadce68a5aacd82c86364a7bc
+>>>>>>> test-master
 	}
 
 }
