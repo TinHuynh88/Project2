@@ -1,5 +1,6 @@
 package com.project_2.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class ProductsServiceImpl implements ProductsService {
 	
 	@Autowired
 	private ProductsDAO productsDao;
+	private List<Products> prodList;
 	
 	public ProductsServiceImpl() {
 		// TODO Auto-generated constructor stub
@@ -49,8 +51,13 @@ public class ProductsServiceImpl implements ProductsService {
 
 	@Override
 	public List<Products> getProductsByName(Products product) {
-		// TODO Auto-generated method stub
-		return productsDao.findAll();
+		List<Products> prodList = new ArrayList<>();
+		productsDao.findAll().forEach( prod -> {
+			if ( prod.getProductName()!=null && prod.getProductName() == product.getProductName()) {
+				this.prodList.add(prod);
+			}
+		});
+		return prodList;
 	}
 
 	@Override

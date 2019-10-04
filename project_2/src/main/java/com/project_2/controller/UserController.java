@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project_2.model.Order;
 import com.project_2.model.User;
 import com.project_2.service.Project_2Service;
 
@@ -31,4 +32,11 @@ public class UserController {
 		
 		return service.getAllUsers();
 	}
+	
+	@PostMapping("/createOrder")
+	public Order createOrder (@RequestBody Order order) {
+		// implement here
+		return order;
+	}
+	
 }

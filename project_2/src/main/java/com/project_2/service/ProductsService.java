@@ -1,8 +1,6 @@
 package com.project_2.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import com.project_2.model.Products;
 
 public interface ProductsService {
