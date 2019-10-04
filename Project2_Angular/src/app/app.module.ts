@@ -27,6 +27,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
+import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
     AdminHomeComponent,
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    AdminSearchTransactionsComponent
   ],
   imports: [
     BrowserModule,

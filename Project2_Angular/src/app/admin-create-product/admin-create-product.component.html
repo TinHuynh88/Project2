@@ -1,1 +1,54 @@
-<p>admin-create-product works!</p>
+
+<app-admin-home></app-admin-home>
+<h1>Add Products</h1>
+<form (ngSubmit)="createProduct()" #productForm="ngForm" class="form-horizontal">
+<div class="form-group">
+  <div class="col-sm-10">
+  <label for="productname" class="col-sm-3 control-label labelName">Product Name</label>
+  <div class="col-sm-6">
+      <input type="text" name="productname" placeholder="Product Name" class="form-control labelName" autofocus>
+  </div>
+  </div>
+  <div class="col-sm-10">
+  <label for="productprice" class="col-sm-3 control-label labelName">Product Price</label>
+  <div class="col-sm-3">
+      <input type="number" name="productprice" placeholder="Product Price" class="form-control labelName" autofocus>
+  </div>
+  
+  <label for="releasedate"  class="col-sm-3 control-label labelName">Release Date</label>
+  <div class="col-sm-3">
+      <input type="date" name="releasedate" placeholder="Release Date" class="form-control labelName"  autofocus>
+  </div>
+  </div>
+  <div class="col-sm-10">
+  <label for="category" class="col-sm-3 control-label labelName">Categoty</label>
+  <div class="col-sm-3">
+      <input type="text" name="catgory" placeholder="Category" class="form-control labelName" autofocus>
+  </div>
+  
+  <label for="quantity" class="col-sm-3 control-label labelName">Quantity</label>
+  <div class="col-sm-3">
+      <input type="number" name="quantity" placeholder="Quantity" class="form-control labelName" autofocus>
+  </div>
+  </div>
+  <div class="col-sm-10">
+  <label for="rating" class="col-sm-3 control-label labelName">Rating</label>
+  <div class="col-sm-3">
+      <input type="number" name="rating" placeholder="Rating" class="form-control labelName" autofocus>
+  </div>
+  
+  <label for="system" class="col-sm-3 control-label labelName">System</label>
+  <div class="col-sm-3">
+      <input type="text" name="system" placeholder="System" class="form-control labelName" autofocus>
+  </div>
+  </div>
+  <div class="col-sm-10">
+  <label for="pictures" class="col-sm-3 control-label labelName">Pictures</label>
+  <div class="col-sm-6">
+      <input type="text" name="pictures" placeholder="Pictures" class="form-control labelName" autofocus>
+  </div>
+  </div>
+</div>
+<input type="submit" value="Create"/>
+</form>
+

@@ -13,18 +13,18 @@ export class AdminHomeComponent implements OnInit {
 
   session:string[];
   constructor(private project2Service:Project2Service,private router:Router) {
-   // let x= getProjectService()
+  
+   
+    
+  }
+
+  ngOnInit() {
     this.project2Service.getSession().subscribe(data=>{
       this.session=data;
       if(this.session==null){
         this.router.navigate(['/adminLogin']);
       }
     });
-    
-  }
-
-  ngOnInit() {
-   // this.project2Service.adminHome();
   }
 
 }

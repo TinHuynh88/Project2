@@ -1,6 +1,10 @@
 
 package com.project_2.controller;
 
+<<<<<<< HEAD
+=======
+import java.security.MessageDigest;
+>>>>>>> test-master
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,41 +21,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project_2.model.Transaction;
 import com.project_2.model.User;
-import com.project_2.service.Project_2Service;
+import com.project_2.service.AdminUsersService;
+
 
 @CrossOrigin
 @RestController
 public class AdminController {
 	@Autowired
-	private Project_2Service service;
+	private AdminUsersService service;
 
 	@Autowired
 	private HttpServletRequest request;
-//	@Autowired 
+ 
 	private HttpSession httpSession;
 
 	@GetMapping("/getSession")
 	public List<String> getSessions() {
-
 		try {
 			@SuppressWarnings("unchecked")
 			List<String> messages = (List<String>) httpSession.getAttribute("USERNAME_SESSION");
-			System.out.println("session = " + httpSession.getId());
-			System.out.println("Test getSession:" + messages);
+//			System.out.println("session = " + httpSession.getId());
+//			System.out.println("Test getSession:" + messages);
 			return messages;
 		} catch (Exception e) {
 			return null;
 		}
-
 	}
 
 	@PostMapping("/adminLogin")
 	public User adminLogin(@RequestBody User user) {
-
 		List<String> messages = new ArrayList<>();
-//			System.out.println("---------------\nTest session login:"+messages);
-
+<<<<<<< HEAD
+=======
+		user.setPassword(encryptPassword(user.getPassword()));
+>>>>>>> test-master
 		User user1 = service.adminLogin(user);
 		if (user1 != null) {
 			messages.add(user1.getUserName());
@@ -72,5 +77,44 @@ public class AdminController {
 		} else {
 			System.out.println("admin home session: " + messages);
 		}
+	}
+	
+<<<<<<< HEAD
+	@PostMapping("/adminCreateTransaction")
+	public Transaction adminCreateTransaction() {
+		Transaction transaction=null;
+		return transaction;
+=======
+	@DeleteMapping("/adminUser/{username}")
+	public void deleteUserByUsername(@PathVariable String username) {
+		System.out.println("Delete: "+username);
+		service.adminUserDelete(username);
+	}
+	
+	@GetMapping("/adminUser/{username}")
+	public User getUserByUsername(@PathVariable String username) {
+		System.out.println("Delete: "+username);
+		User user=service.getUserByName(username);
+		return user;
+	}
+	
+	public String encryptPassword(String password) {
+		StringBuffer message = new StringBuffer();
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-1");
+			byte[] hash = md.digest(password.getBytes("UTF-8"));
+
+			for (byte w : hash) {
+				message.append(String.format("%02x", w));
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return message.toString();
+
+>>>>>>> test-master
 	}
 }

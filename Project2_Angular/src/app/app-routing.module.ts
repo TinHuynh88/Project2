@@ -20,6 +20,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
 
 
 const routes: Routes = [
@@ -44,10 +45,11 @@ const routes: Routes = [
   {path:'adminLogin', component:AdminLoginComponent},
     {path:'adminHome',component:AdminHomeComponent},
     
-    {path:'SearchUsers',component:AdminSearchUsersComponent},
+    {path:'adminSearchUsers',component:AdminSearchUsersComponent},
     {path:'adminCreateProduct',component:AdminCreateProductComponent},
 
-  {path:'SearchProducts',component:AdminSearchProductsComponent}
+  {path:'adminSearchProducts',component:AdminSearchProductsComponent},
+  {path:'adminSearchTransactions',component:AdminSearchTransactionsComponent}
 
 ];
 
