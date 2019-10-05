@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project_2.dao.UserDAO;
-import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
 
@@ -47,9 +46,15 @@ public class AdminUsersServiceImpl implements AdminUsersService {
 	}
 
 	@Override
-	public User getUserByName(String userName) {
+	public User getUserByUsername(String userName) {
 		return userDao.findById(userName).get();
 	}
 
-	
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return  userDao.save(user);
+	}
+
+
 }
