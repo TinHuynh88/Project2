@@ -1,5 +1,6 @@
 package com.project_2.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Transaction {
+public class Transaction implements Serializable{
 	@Id
 	@GeneratedValue
 	private long transactionId;

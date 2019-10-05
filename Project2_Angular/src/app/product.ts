@@ -1,15 +1,15 @@
 export class Product {
 
-  private productId:number;
-  private productName:string;
-  private productPrice:number;
-  private releaseDate:string;
-  private category:string;
-  private quantity:number;
-  private rating:number;
-  private system:string;
+  productId:number;
+  productName:string;
+  productPrice:number;
+  releaseDate:string;
+  category:string;
+  quantity:number;
+  rating:number;
+  system:string;
   // URL
-  private picture:string;
+  picture:string;
 
   constructor (productId:number, 
     productName:string,
