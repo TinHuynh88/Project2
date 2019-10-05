@@ -21,6 +21,7 @@ import { AdminSearchProductsComponent } from './admin-search-products/admin-sear
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
     {path:'orderSuccess',component:OrderSuccessComponent},
     {path:'userAccount',component:UserAccountComponent},
     {path:'userOrders',component:UserOrdersComponent},
+    {path:'createProduct',component:CreateProductComponent}
   ]},
   {path:'adminLogin', component:AdminLoginComponent},
     {path:'adminHome',component:AdminHomeComponent},

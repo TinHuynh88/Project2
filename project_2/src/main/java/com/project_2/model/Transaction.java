@@ -26,7 +26,7 @@ public class Transaction {
 	}
 	
 	public Transaction() {
-		// TODO Auto-generated constructor stub
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
 	}
 
 	public Transaction(long transactionId, Date transactionDate, double transactionPrice, User user) {
@@ -67,5 +67,45 @@ public class Transaction {
 
 	public void setUser(User user) {
 		this.user = user;
-	}	
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((transactionDate == null) ? 0 : transactionDate.hashCode());
+		result = prime * result + (int) (transactionId ^ (transactionId >>> 32));
+		long temp;
+		temp = Double.doubleToLongBits(transactionPrice);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Transaction other = (Transaction) obj;
+		if (transactionDate == null) {
+			if (other.transactionDate != null)
+				return false;
+		} else if (!transactionDate.equals(other.transactionDate))
+			return false;
+		if (transactionId != other.transactionId)
+			return false;
+		if (Double.doubleToLongBits(transactionPrice) != Double.doubleToLongBits(other.transactionPrice))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
+	}
+	
 }

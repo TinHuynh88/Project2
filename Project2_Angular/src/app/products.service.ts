@@ -13,17 +13,17 @@ export class ProductsService {
   //private getProductUrl:string;
   //private updateProductUrl:string;
   constructor(private http:HttpClient) {
-    this.createProductUrl="http://localhost:2000/createProduct";
-    this.getProductsUrl="http://localhost:2000/products";
+    this.createProductUrl="http://localhost:3000/createProduct";
+    this.getProductsUrl="http://localhost:3000/products";
     //this.deleteProductUrl="http://localhost:2000/product/";
     //this.getProductUrl="http://localhost:2000/product/";
     //this.updateProductUrl="http://localhost:2000/updateProduct";
   }
 
-  public getAllProducts():Observable<Product[]>{
+  public getAllProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.getProductsUrl);
   }
-  public createProduct(product:Product){
-   return this.http.post<Product>(this.createProductUrl,product);
+  public createProduct(product: Product){
+   return this.http.post<Product>(this.createProductUrl, product);
   }
 }

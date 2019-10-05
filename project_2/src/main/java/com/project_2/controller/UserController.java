@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project_2.service.UserService;
 import com.project_2.model.Order;
+import com.project_2.model.Products;
 import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
+import com.project_2.service.OrderService;
+import com.project_2.service.ProductsService;
 import com.project_2.service.TransactionService;
 
 
@@ -40,6 +43,12 @@ public class UserController {
 	
 	@Autowired
 	private TransactionService transactionService;
+	
+	@Autowired
+	private OrderService orderService;
+	
+	@Autowired
+	private ProductsService productsService;
 	
 	@Autowired
 	private HttpServletRequest request;
@@ -93,6 +102,16 @@ public class UserController {
 		
 		return service.getAllUsers();
 	}
+	
+	@PostMapping("/createProduct")
+	public Products createProduct(@RequestBody Products product) {
+		return productsService.createProduct(product);
+	}
+	
+	@GetMapping("/products")
+	public List<Products> getAllProducts() {
+		return productsService.getAllProducts();
+	}
 
 	
 	@PostMapping("/createTransaction")
@@ -102,15 +121,28 @@ public class UserController {
 	}
 	@GetMapping("/transactions")
 	public List<Transaction> getAllTransactions() {
-		
 		return transactionService.getAllTransactions();
 	}
 	
     @PostMapping("/createOrder")
 	public Order createOrder (@RequestBody Order order) {
-		// implement here
-		return order;
+		return orderService.createOrder(order);
 	}
+    
+    @GetMapping("/orders")
+    public List<Order> getAllOrders() {
+    	return orderService.getAllOrders();
+    };
+    
+    @GetMapping("/orders/{id}")
+    public List<Order> getOrdersByTransactionId(@PathVariable long transactionId) {
+    	return orderService.getOrdersByTransactionId(transactionId);
+    };
+    
+    @GetMapping("/orders/{id}")
+    public List<Order> getOrdersByProductId(@PathVariable long productId) {
+    	return orderService.getOrdersByProductId(productId);
+    };
     
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

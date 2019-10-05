@@ -1,7 +1,8 @@
 package com.project_2.model;
 
 
-import javax.persistence.FetchType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,87 +10,87 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Indexed;
 
-
+@Entity
 @Table
 @Indexed
 public class Order {
+
 	@Id
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="transactionId")
-	private Transaction transaction;
+	@GeneratedValue
+	private long orderId;
 	
-	@Id
-	@ManyToOne(fetch=FetchType.LAZY)
+	
+	@ManyToOne
+	@JoinColumn(name="transactionId")
+	private long transactionId;
+	
+	@ManyToOne
 	@JoinColumn(name="productId")
-	private Products products;
+	private long productId;
 	 
 	private int quantitySold;
 	
 	private double totalUnitPrice;
 	
-	
-	@Override
-	public String toString() {
-		return "Orders [transaction=" + transaction + ", products=" + products + ", quantitySold=" + quantitySold
-				+ ", totalUnitPrice=" + totalUnitPrice + "]";
-	}
-
-
 	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", transactionId=" + transactionId + ", productId=" + productId
+				+ ", quantitySold=" + quantitySold + ", totalUnitPrice=" + totalUnitPrice + "]";
+	}
 
-	public Order(Transaction transaction, Products products, int quantitySold, double totalUnitPrice) {
+	public Order(long orderId, long transactionId, long productId, int quantitySold, double totalUnitPrice) {
 		super();
-		this.transaction = transaction;
-		this.products = products;
+		this.orderId = orderId;
+		this.transactionId = transactionId;
+		this.productId = productId;
 		this.quantitySold = quantitySold;
 		this.totalUnitPrice = totalUnitPrice;
 	}
 
+	
 
-	public Transaction getTransaction() {
-		return transaction;
+	public long getOrderId() {
+		return orderId;
 	}
 
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
+	public void setOrderId(long orderId) {
+		this.orderId = orderId;
 	}
 
-
-	public Products getProduct() {
-		return products;
+	public long getTransactionId() {
+		return transactionId;
 	}
 
-
-	public void setProduct(Products products) {
-		this.products = products;
+	public void setTransactionId(long transactionId) {
+		this.transactionId = transactionId;
 	}
 
+	public long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
 
 	public int getQuantitySold() {
 		return quantitySold;
 	}
 
-
 	public void setQuantitySold(int quantitySold) {
 		this.quantitySold = quantitySold;
 	}
-
 
 	public double getTotalUnitPrice() {
 		return totalUnitPrice;
 	}
 
-
 	public void setTotalUnitPrice(double totalUnitPrice) {
 		this.totalUnitPrice = totalUnitPrice;
-	}
-	
-	
-	
-	
+	}	
 	
 }

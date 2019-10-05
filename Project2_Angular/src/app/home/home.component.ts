@@ -14,7 +14,7 @@ import { ProductPageComponent } from '../product-page/product-page.component';
 })
 export class HomeComponent implements OnInit {
 
-  loggedIn = false;
+  loggedIn = true;
 
   title = 'Vintage Video Games';
   login: LoginComponent;

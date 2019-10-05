@@ -28,6 +28,7 @@ import {FormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AdminSearchTransactionsComponent } from './admin-search-transactions/ad
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
     ProductPageComponent,
-    AdminSearchTransactionsComponent
+    AdminSearchTransactionsComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,
