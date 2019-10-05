@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -90,9 +91,28 @@ public class AdminController {
 	
 	@GetMapping("/adminUser/{username}")
 	public User getUserByUsername(@PathVariable String username) {
-		System.out.println("Delete: "+username);
-		User user=service.getUserByName(username);
+	//	System.out.println("Delete: "+username);
+		User user=service.getUserByUsername(username);
 		return user;
+	}
+	
+	//Update need use query in DAO because of dont update password
+	@PutMapping("/adminUpdateUser")
+	public User updatetUserByUsername(@RequestBody User user) {
+		System.out.println("update: "+user);
+		try {
+			user=service.updateUser(user);
+		}catch(Exception e) {
+			System.out.println("Update error:"+e.getMessage());
+			user=null;
+		}
+		return user;
+	}
+	
+	@GetMapping("/adminLogout")
+	public void adminLogout() {
+		System.out.println("Admin Logout");
+		this.httpSession.invalidate();
 	}
 	
 	public String encryptPassword(String password) {
