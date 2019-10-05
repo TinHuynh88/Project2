@@ -1,8 +1,8 @@
 package com.project_2.model;
 
+import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,22 +11,21 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Indexed;
 
+import javax.persistence.FetchType;
+
 @Entity
-@Table
-@Indexed
-public class Order {
+@Table(name = "order_table")
+//@Indexed
+public class Order implements Serializable{
 	
 	@Id
 	@GeneratedValue
 	private long orderId;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="transactionId")
+	@ManyToOne
 	private Transaction transaction;
 	
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="productId")
+	@ManyToOne
 	private Products products;
 	 
 	private int quantitySold;
