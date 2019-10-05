@@ -60,10 +60,11 @@ public class UserController {
 	}
 	
 	
-	@PostMapping("/login")
-	public User userLogin(User user) {
-		
+	@PostMapping("/userLogin")
+	public User userLogin(@RequestBody User user) {
+		System.out.println(user);
 		List<String> message1 = new ArrayList<>();
+		user.setPassword(encryptPassword(user.getPassword()));
 		User user1 = service1.userLogin(user);
 		if(user1 != null) {
 			message1.add(user1.getUserName());
@@ -72,11 +73,12 @@ public class UserController {
 			this.httpSession.setAttribute("USERNAME_SESSION", message1);
 		}
 		
-		return user;
+		return user1;
 	}
 	
 	@PostMapping("/userRegister") 
 	public User userRegister(@RequestBody User user) {
+		user.setPassword(encryptPassword(user.getPassword()));
 		return service1.userRegister(user);
 	}
 	
