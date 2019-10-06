@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProductPageComponent implements OnInit {
   product: Product;
-  loggedIn :boolean;
+  loggedIn: boolean;
   session: string[];
   products: Product[] = [];
 

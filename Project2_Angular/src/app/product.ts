@@ -13,6 +13,7 @@ export class Product {
   picture1: string;
   picture2: string;
   picture3: string;
+
   // constructor (productId:number,
   //   productName:string,
   //   productPrice:number,
