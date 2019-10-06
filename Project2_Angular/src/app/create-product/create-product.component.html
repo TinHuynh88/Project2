@@ -1,0 +1,24 @@
+<div>
+
+  <form (ngSubmit)="createProduct()" #createProductForm="ngForm">
+
+    <h2>Product Id: {{ product.productId }} </h2>
+    <input type="text" name="productId" value="0" [(ngModel)]="product.productId">
+    <h2>Product Name: {{ product.productName }} </h2>
+    <input type="text" name="productName" value="productName" [(ngModel)]="product.productName">
+    <h2>Product Price: {{ product.productPrice }} </h2>
+    <input type="text" name="productPrice" value="productPrice" [(ngModel)]="product.productPrice">
+    <h2>Product Release Date: {{ product.releaseDate }} </h2>
+    <input type="text" name="releaseDate" value="releaseDate" [(ngModel)]="product.releaseDate">
+    <h2>Product Category: {{ product.category }} </h2>
+    <input type="text" name="category" value="category" [(ngModel)]="product.category">
+    <h2>Product Quantity: {{ product.quantity }} </h2>
+    <input type="text" name="quantity" value="quantity" [(ngModel)]="product.quantity">
+    <h2>Product Rating: {{ product.rating }} </h2>
+    <input type="text" name="rating" value="rating" [(ngModel)]="product.rating">
+    <h2>Product Pictures: {{ product.pictures }} </h2>
+
+    <input type="submit" value="Create Product" />
+  </form>
+  
+</div>

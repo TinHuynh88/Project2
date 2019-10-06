@@ -50,6 +50,12 @@ public class UserController {
 	private TransactionService transactionService;
 	
 	@Autowired
+	private OrderService orderService;
+	
+	@Autowired
+	private ProductsService productsService;
+	
+	@Autowired
 	private HttpServletRequest request;
 	
 	private HttpSession httpSession;
@@ -68,10 +74,11 @@ public class UserController {
 	}
 	
 	
-	@PostMapping("/login")
-	public User userLogin(User user) {
-		
+	@PostMapping("/userLogin")
+	public User userLogin(@RequestBody User user) {
+		System.out.println(user);
 		List<String> message1 = new ArrayList<>();
+		user.setPassword(encryptPassword(user.getPassword()));
 		User user1 = service1.userLogin(user);
 		if(user1 != null) {
 			message1.add(user1.getUserName());
@@ -80,11 +87,12 @@ public class UserController {
 			this.httpSession.setAttribute("USERNAME_SESSION", message1);
 		}
 		
-		return user;
+		return user1;
 	}
 	
 	@PostMapping("/userRegister") 
 	public User userRegister(@RequestBody User user) {
+		user.setPassword(encryptPassword(user.getPassword()));
 		return service1.userRegister(user);
 	}
 	
@@ -101,6 +109,16 @@ public class UserController {
 		
 		return service.getAllUsers();
 	}
+	
+	@PostMapping("/createProduct")
+	public Products createProduct(@RequestBody Products product) {
+		return productsService.createProduct(product);
+	}
+	
+	@GetMapping("/products")
+	public List<Products> getAllProducts() {
+		return productsService.getAllProducts();
+	}
 
 	
 	@PostMapping("/createTransaction")
@@ -110,14 +128,12 @@ public class UserController {
 	}
 	@GetMapping("/transactions")
 	public List<Transaction> getAllTransactions() {
-		
 		return transactionService.getAllTransactions();
 	}
 	
     @PostMapping("/createOrder")
 	public Order createOrder (@RequestBody Order order) {
-		// implement here
-		return order;
+		return orderService.createOrder(order);
 	}
   //////////////Test  
     @PostMapping("/create")
@@ -150,6 +166,21 @@ public class UserController {
     @GetMapping("/ordersByProductId/{id}")
     public List<Order> getOrdersByProductId(@PathVariable long productId) {
         return orderService.getOrdersByProductId(productId);
+    };
+    
+    @GetMapping("/orders")
+    public List<Order> getAllOrders() {
+    	return orderService.getAllOrders();
+    };
+    
+    @GetMapping("/orders/{id}")
+    public List<Order> getOrdersByTransactionId(@PathVariable long transactionId) {
+    	return orderService.getOrdersByTransactionId(transactionId);
+    };
+    
+    @GetMapping("/orders/{id}")
+    public List<Order> getOrdersByProductId(@PathVariable long productId) {
+    	return orderService.getOrdersByProductId(productId);
     };
     
 	public String encryptPassword(String password) {
