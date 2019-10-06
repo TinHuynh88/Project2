@@ -13,15 +13,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project_2.model.Products;
 import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
+import com.project_2.service.ProductsService;
 
 
 @CrossOrigin
@@ -29,6 +32,8 @@ import com.project_2.service.AdminUsersService;
 public class AdminController {
 	@Autowired
 	private AdminUsersService service;
+	@Autowired
+	private ProductsService productService;
 
 	@Autowired
 	private HttpServletRequest request;
@@ -89,6 +94,20 @@ public class AdminController {
 		service.adminUserDelete(username);
 	}
 	
+	@DeleteMapping("/product/{id}")
+	public void deleteUserByUsername(@PathVariable long id) {
+		System.out.println("Delete: "+id);
+//		Products p= new Products();
+//		p.setProductId(id);
+		productService.deleteProductById(id);
+	}
+	
+	@GetMapping("/searchProducts/{search}")
+	public List<Products> searchProducts(@PathVariable String search) {
+		System.out.println("General__Search: "+search);
+		return productService.getProductBySearch(search);
+	}
+	
 	@GetMapping("/adminUser/{username}")
 	public User getUserByUsername(@PathVariable String username) {
 	//	System.out.println("Delete: "+username);
@@ -96,7 +115,6 @@ public class AdminController {
 		return user;
 	}
 	
-	//Update need use query in DAO because of dont update password
 	@PutMapping("/adminUpdateUser")
 	public User updatetUserByUsername(@RequestBody User user) {
 		System.out.println("update: "+user);
