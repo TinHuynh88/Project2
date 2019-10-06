@@ -20,6 +20,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,8 @@ const routes: Routes = [
     {path:'orderSuccess',component:OrderSuccessComponent},
     {path:'userAccount',component:UserAccountComponent},
     {path:'userOrders',component:UserOrdersComponent},
+    {path:'payment',component:PaymentComponent}
+
   ]},
   {path:'adminLogin', component:AdminLoginComponent},
     {path:'adminHome',component:AdminHomeComponent},

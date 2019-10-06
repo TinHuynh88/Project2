@@ -24,9 +24,10 @@ import { AdminSearchUsersComponent } from './admin-search-users/admin-search-use
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -50,13 +51,15 @@ import { ProductPageComponent } from './product-page/product-page.component';
     AdminHomeComponent,
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
