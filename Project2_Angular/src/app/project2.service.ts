@@ -51,7 +51,8 @@ export class Project2Service {
   }
 
   public updateUser(user:User){
-    return this.http.post<User>(this.updateUserUrl,user);
+    console.log("user: "+ user.firstName);
+    return this.http.put<User>(this.updateUserUrl,user);
   }
   public adminLogout(){
     return this.http.get(this.adminLogoutUrl);

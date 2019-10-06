@@ -53,6 +53,7 @@ public class AdminUsersServiceImpl implements AdminUsersService {
 	@Override
 	public User updateUser(User user) {
 		// TODO Auto-generated method stub
+		System.out.println("UpdateDAO: "+user);
 		return  userDao.save(user);
 	}
 

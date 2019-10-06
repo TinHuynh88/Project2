@@ -33,20 +33,16 @@ export class AdminEditUserComponent implements OnInit, OnDestroy {
     });
   }
 
-  updateUser(user: User) {
+  updateUser() {
 
     if (this.isUpdate) {
-      console.log("ddddddddddd"+user.userName);
-      this.project2Service.updateUser(user).subscribe(data => {
-        this.user = data;
-        if (this.user == null) {
-          console.log("Email unique");
-
-        } else {
-
-          this.router.navigate(['adminHome/adminSearchUsers']);
-        }
+      console.log("ddddddddddd"+this.user.userName);
+      console.log("dddd"+this.user.password);
+      this.project2Service.updateUser(this.user).subscribe(data=>{
+        this.user=data;
+        alert("Update User[ "+this.user.userName+" ] succeeded.");
       });
+      console.log("qqqq"+this.user.password);
     }
     // else{
     //   console.log("aaaaaaaaaaaaaaaaaaaaa");
