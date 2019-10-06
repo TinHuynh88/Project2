@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       username: new FormControl ('', [Validators.required]),
-      password: new FormControl ('', [Validators.required,Validators.minLength(5)])
+      password: new FormControl ('', [Validators.required])
     });
 
     this.project2Service.getUserSession().subscribe(data => {
@@ -55,6 +55,10 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin(){
+    if(this.user.userName == undefined || this.user.password == undefined){
+      this.errMessage="Please enter username or password";
+      return ;
+    }
     console.log(this.user.password+" test ter- " +this.user.userName);
     this.project2Service.userLogin(this.user).subscribe(data => {
       this.user = data;
@@ -62,13 +66,14 @@ export class LoginComponent implements OnInit {
       if (this.user != null) {
        
         console.log("test after- " + this.user.userName);
+
         window.location.reload();
      //   this.router.navigate(['/home/products']);
-        
+
       } else {
         
         this.user = new User();
-        this.errMessage = "Username and/or password is incorrect.";
+        this.errMessage = "Username and/or password is not entered.";
       }
     });
   }

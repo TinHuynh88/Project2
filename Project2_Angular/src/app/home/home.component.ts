@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   account: UserAccountComponent;
   products: ProductPageComponent;
 
+
   session: string[];
   constructor(private project2Service: Project2Service, private router: Router) { }
 
