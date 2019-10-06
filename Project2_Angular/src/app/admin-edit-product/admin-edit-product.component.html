@@ -62,13 +62,18 @@
                         <input type="number" name="rating" class="input100" placeholder="Rating *"
                           value="{{product.rating}}" [(ngModel)]="product.rating" />
                       </div>
-                      <h5 class="col-md-12 font-weight-bold text-left">Pictures: </h5>
+                      <h5 class="col-md-12 font-weight-bold text-left">Pictures 1: </h5>
                       <div class="form-group">
-                        <textarea name="pictures" class="input100" placeholder="Pictures *" value="{{product.rating}}"
-                          [(ngModel)]="product.rating">
+                        <input type="text" name="picture1" class="input100" placeholder="Picture1 *" value="{{product.picture1}}"
+                          [(ngModel)]="product.picture1"/>
 
-              </textarea>
                       </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Pictures 2: </h5>
+                      <div class="form-group">
+                          <input type="text" name="picture2" class="input100" placeholder="Picture2 *" value="{{product.picture2}}"
+                            [(ngModel)]="product.picture2"/>
+  
+                        </div>
                       <div></div>
 
                     </div>
