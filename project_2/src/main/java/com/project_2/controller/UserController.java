@@ -49,8 +49,6 @@ public class UserController {
 	@Autowired
 	private TransactionService transactionService;
 	
-	@Autowired
-	private OrderService orderService;
 	
 	@Autowired
 	private ProductsService productsService;
@@ -149,7 +147,7 @@ public class UserController {
 	}
     
     @GetMapping("/productss")
-	public List<Products> getAllProducts() {
+	public List<Products> getAllProductsss() {
 		
 		return productService.getAllProducts();
 	}
@@ -167,21 +165,8 @@ public class UserController {
     public List<Order> getOrdersByProductId(@PathVariable long productId) {
         return orderService.getOrdersByProductId(productId);
     };
-    
-    @GetMapping("/orders")
-    public List<Order> getAllOrders() {
-    	return orderService.getAllOrders();
-    };
-    
-    @GetMapping("/orders/{id}")
-    public List<Order> getOrdersByTransactionId(@PathVariable long transactionId) {
-    	return orderService.getOrdersByTransactionId(transactionId);
-    };
-    
-    @GetMapping("/orders/{id}")
-    public List<Order> getOrdersByProductId(@PathVariable long productId) {
-    	return orderService.getOrdersByProductId(productId);
-    };
+       
+  
     
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

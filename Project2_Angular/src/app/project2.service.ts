@@ -16,6 +16,7 @@ export class Project2Service {
   private adminLogoutUrl:string;
   private getUserByUsernameUrl:string;
   private updateUserUrl:string;
+  private userLoginUrl: string;
 
   constructor(private http:HttpClient) { 
     this.adminLoginUrl="http://localhost:3000/adminLogin";
@@ -26,6 +27,8 @@ export class Project2Service {
     this.adminLogoutUrl="http://localhost:3000/adminLogout";
     this.getUserByUsernameUrl="http://localhost:3000//adminUser/";
     this.updateUserUrl="http://localhost:3000/adminUpdateUser";
+    this.userLoginUrl="http://localhost:3000/userLogin";
+    
   }
 
   public adminLogin(user: User){
@@ -56,5 +59,9 @@ export class Project2Service {
   }
   public adminLogout(){
     return this.http.get(this.adminLogoutUrl);
+  }
+
+  public userLogin(user: User){
+    return this.http.post<User>(this.userLoginUrl, user);
   }
 }

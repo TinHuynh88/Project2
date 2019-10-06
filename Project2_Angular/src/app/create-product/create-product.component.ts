@@ -16,6 +16,9 @@ export class CreateProductComponent implements OnInit {
     this.product = new Product();
   }
 
+  ngOnInit() {
+  }
+  
   createProduct() {
     this.productsService.createProduct(this.product).subscribe(data => this.gotoProductsPage());
   }
@@ -25,5 +28,6 @@ export class CreateProductComponent implements OnInit {
     this.router.navigate(['/home']);
 
   }
+
 
 }
