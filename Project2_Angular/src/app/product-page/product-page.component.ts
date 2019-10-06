@@ -3,6 +3,7 @@ import { Product } from '../product';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { Project2Service } from '../project2.service';
 import { Router } from '@angular/router';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-page',
@@ -15,9 +16,14 @@ export class ProductPageComponent implements OnInit {
   session: string[];
   products: Product[] = [];
 
-  constructor(private project2Service: Project2Service, private router: Router) { }
+  constructor(private project2Service: Project2Service,private productsService: ProductsService, private router: Router) { }
 
   ngOnInit() {
+    this.productsService.getAllProducts().subscribe( data => {
+      data.forEach(prod => {
+        this.products.push(prod);
+      });
+    });
     this.project2Service.getUserSession().subscribe(data => {
       this.session = data;
       if (this.session == null) {
