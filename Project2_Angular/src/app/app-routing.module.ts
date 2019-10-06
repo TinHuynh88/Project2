@@ -24,6 +24,7 @@ import { AdminSearchTransactionsComponent } from './admin-search-transactions/ad
 import { CreateProductComponent } from './create-product/create-product.component';
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,9 @@ const routes: Routes = [
     {path:'orderSuccess',component:OrderSuccessComponent},
     {path:'userAccount',component:UserAccountComponent},
     {path:'userOrders',component:UserOrdersComponent},
-    {path:'createProduct',component:CreateProductComponent}
+    {path:'createProduct',component:CreateProductComponent},
+    {path:'payment',component:PaymentComponent}
+
   ]},
   {path:'adminLogin', component:AdminLoginComponent},
     {path:'adminHome',component:AdminHomeComponent, children:[
@@ -55,8 +58,6 @@ const routes: Routes = [
     {path:'adminEditUser',component:AdminEditUserComponent},
     {path:'adminEditProduct',component:AdminEditProductComponent}
     ]}
-    
-    
 
 ];
 
@@ -65,3 +66,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
