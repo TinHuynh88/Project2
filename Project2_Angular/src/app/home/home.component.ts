@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  loggedIn :boolean;
+  loggedIn: boolean;
 
   title = 'Vintage Video Games';
   login: LoginComponent;
