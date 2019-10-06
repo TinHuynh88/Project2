@@ -154,6 +154,19 @@ public class UserController {
 		return productService.getAllProducts();
 	}
  ///////////////////////////////////////////   
+    @GetMapping("/orders")
+    public List<Order> getAllOrders() {
+    	return orderService.getAllOrders();
+    };
+    
+    @GetMapping("/ordersByTransactionId/{id}")
+    public List<Order> getOrdersByTransactionId(@PathVariable long transactionId) {
+        return orderService.getOrdersByTransactionId(transactionId);
+    };
+    @GetMapping("/ordersByProductId/{id}")
+    public List<Order> getOrdersByProductId(@PathVariable long productId) {
+        return orderService.getOrdersByProductId(productId);
+    };
     
     @GetMapping("/orders")
     public List<Order> getAllOrders() {

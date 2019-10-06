@@ -13,13 +13,9 @@ export class Project2Service {
   private adminHomeUrl: string;
   private usersUrl:string;
   private deleteUserByUsernameUrl:string;
-
-  private userLoginUrl: string;
-
   private adminLogoutUrl:string;
   private getUserByUsernameUrl:string;
   private updateUserUrl:string;
-
 
   constructor(private http:HttpClient) { 
     this.adminLoginUrl="http://localhost:3000/adminLogin";
@@ -27,23 +23,14 @@ export class Project2Service {
     this.adminHomeUrl="http://localhost:3000/adminHome";
     this.usersUrl="http://localhost:3000/users";
     this.deleteUserByUsernameUrl="http://localhost:3000/adminUser/";
-
-    this.userLoginUrl="http://localhost:3000/userLogin"
-
     this.adminLogoutUrl="http://localhost:3000/adminLogout";
     this.getUserByUsernameUrl="http://localhost:3000//adminUser/";
     this.updateUserUrl="http://localhost:3000/adminUpdateUser";
-
   }
 
   public adminLogin(user: User){
     return this.http.post<User>(this.adminLoginUrl, user);
   }
-
-  public userLogin(user: User){
-    return this.http.post<User>(this.userLoginUrl, user);
-  }
-
   public getSession():Observable<string[]>{
     return this.http.get<string[]>(this.getSessionUrl);
   }
@@ -64,7 +51,8 @@ export class Project2Service {
   }
 
   public updateUser(user:User){
-    return this.http.post<User>(this.updateUserUrl,user);
+    console.log("user: "+ user.firstName);
+    return this.http.put<User>(this.updateUserUrl,user);
   }
   public adminLogout(){
     return this.http.get(this.adminLogoutUrl);
