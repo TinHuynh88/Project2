@@ -6,9 +6,9 @@
         <div *ngFor="let product of products; let i = index; trackBy: trackByFn">
           <!-- PRODUCT CARD -->
           <div class="card" id="productCard">
-              <a class="nav-link" routerLink="productCard">
-                <img class="card-img" src="{{ products[i].pictures[0] }}" alt="Card Image">
-              </a>
+              
+                <img class="card-img" src="{{ products[i].picture1 }}" alt="Card Image">
+              
             <div class="card-image-overlay">
 
               <p class="card-title">{{ products[i].productName}}</p>
@@ -19,10 +19,10 @@
             </div>
 
             <div> <!-- ngIf on add to cart button:: hook into parent's loggedIn value -->
-                <input value="Add to Cart" type="button" onsubmit="addToCart()">
+              <input value="Add to Cart" type="button" onsubmit="addToCart()">
             </div>
             
-           <!--  END OF CARD --> 
+          <!--  END OF CARD --> 
           </div>
         <!-- END OF FOR LOOP -->  
         </div>
