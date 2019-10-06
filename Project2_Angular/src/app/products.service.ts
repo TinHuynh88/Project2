@@ -20,10 +20,10 @@ export class ProductsService {
     //this.updateProductUrl="http://localhost:2000/updateProduct";
   }
 
-  public getAllProducts(): Observable<Product[]>{
+  public getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.getProductsUrl);
   }
-  public createProduct(product: Product){
+  public createProduct(product: Product) {
    return this.http.post<Product>(this.createProductUrl, product);
   }
 }
