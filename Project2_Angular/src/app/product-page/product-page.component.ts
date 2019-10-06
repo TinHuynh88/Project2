@@ -16,10 +16,10 @@ export class ProductPageComponent implements OnInit {
   session: string[];
   products: Product[] = [];
 
+
   constructor(private project2Service: Project2Service, private productsService: ProductsService, private router: Router) { }
 
   ngOnInit() {
-
     this.productsService.getAllProducts().subscribe( data => {
       data.forEach(prod => {
         this.products.push(prod);
