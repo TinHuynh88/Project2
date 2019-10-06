@@ -13,10 +13,21 @@ export class RegisterComponent implements OnInit {
 
   registerForm : FormGroup;
   user: User;
+  userCreated:User;
   errMessage: string;
+  streetInput:string;
+  cityInput:string;
+  stateInput: string;
+  zipInput: string;
+
   constructor(private formBuilder:FormBuilder, private project2Service: Project2Service, private router: Router) {
     this.user = new User();
+    this.userCreated= new User();
     this.errMessage = "";
+    this.streetInput="";
+    this.cityInput="";
+    this.stateInput="";
+    this.zipInput="";
    }
 
   ngOnInit() {
@@ -98,17 +109,19 @@ export class RegisterComponent implements OnInit {
       this.errMessage="Please fill out all the fields.";
       return ;
     }
-    this.project2Service.userLogin(this.user).subscribe(data => {
-      this.user = data;
+    this.user.role="User";
+    this.user.address=this.streetInput+", "+this.cityInput+", "+this.stateInput+", "+this.zipInput;
+    this.project2Service.userRegister(this.user).subscribe(data => {
+      this.userCreated = data;
       
-      if (this.user != null) {
+      if (this.userCreated != null) {
        
-        console.log("test after- " + this.user.userName);
+        console.log("test after- " + this.userCreated.userName);
         
         this.router.navigate(['/home']);
       } else {
         
-        this.user = new User();
+        this.userCreated = new User();
         this.errMessage = "Please fill remaining fields.";
       }
     });

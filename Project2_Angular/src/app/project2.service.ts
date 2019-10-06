@@ -19,6 +19,7 @@ export class Project2Service {
   private adminLogoutUrl:string;
   private getUserByUsernameUrl:string;
   private updateUserUrl:string;
+  private userRegisterUrl: string;
 
 
   constructor(private http:HttpClient) { 
@@ -28,7 +29,8 @@ export class Project2Service {
     this.usersUrl="http://localhost:3000/users";
     this.deleteUserByUsernameUrl="http://localhost:3000/adminUser/";
 
-    this.userLoginUrl="http://localhost:3000/userLogin"
+    this.userLoginUrl="http://localhost:3000/userLogin";
+    this.userRegisterUrl="http://localhost:3000/userRegister";
 
     this.adminLogoutUrl="http://localhost:3000/adminLogout";
     this.getUserByUsernameUrl="http://localhost:3000//adminUser/";
@@ -68,5 +70,9 @@ export class Project2Service {
   }
   public adminLogout(){
     return this.http.get(this.adminLogoutUrl);
+  }
+
+  public userRegister(user: User){
+    return this.http.post<User>(this.userRegisterUrl, user);
   }
 }
