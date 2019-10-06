@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 })
 export class AdminCreateProductComponent {
   product:Product;
+  
   constructor(private productService:ProductsService, private router:Router) {
     //this.product=new Products();
   }
   createProduct() {
-    this.productService.createProduct(this.product).subscribe(data=>this.gotoProductList());
+    console.log(this.product);
+    // this.productService.createProduct(this.product).subscribe(data=>this.gotoProductList());
   }
   
   gotoProductList() {

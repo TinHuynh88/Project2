@@ -12,4 +12,8 @@ public interface UserDAO extends JpaRepository<User, String>{
 
 	@Query(value="Select * from user where (user_name=:userName and password=:password)", nativeQuery = true)
 	User adminLogin(@Param("userName") String userName, @Param("password") String password);
+	
+	@Query(value="Select * from user where (user_name=:userName and password=:password)", nativeQuery = true)
+	User userLogin(@Param("userName") String userName, @Param("password") String password);
+	
 }

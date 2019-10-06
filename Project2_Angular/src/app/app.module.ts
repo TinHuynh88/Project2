@@ -27,7 +27,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
+
 import { PaymentComponent } from './payment/payment.component';
+
+import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
+
+import { CreateProductComponent } from './create-product/create-product.component';
+
+import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
+import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
+
 
 @NgModule({
   declarations: [
@@ -52,14 +61,18 @@ import { PaymentComponent } from './payment/payment.component';
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
     ProductPageComponent,
-    PaymentComponent
+    PaymentComponent,
+    AdminSearchTransactionsComponent,
+    CreateProductComponent,
+    AdminEditUserComponent,
+    AdminEditProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

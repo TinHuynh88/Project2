@@ -20,6 +20,10 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminSearchProductsComponent } from './admin-search-products/admin-search-products.component';
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
+import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
 import { PaymentComponent } from './payment/payment.component';
 
 
@@ -41,16 +45,19 @@ const routes: Routes = [
     {path:'orderSuccess',component:OrderSuccessComponent},
     {path:'userAccount',component:UserAccountComponent},
     {path:'userOrders',component:UserOrdersComponent},
+    {path:'createProduct',component:CreateProductComponent},
     {path:'payment',component:PaymentComponent}
 
   ]},
   {path:'adminLogin', component:AdminLoginComponent},
-    {path:'adminHome',component:AdminHomeComponent},
-    
-    {path:'SearchUsers',component:AdminSearchUsersComponent},
-    {path:'adminCreateProduct',component:AdminCreateProductComponent},
-
-  {path:'SearchProducts',component:AdminSearchProductsComponent}
+    {path:'adminHome',component:AdminHomeComponent, children:[
+      {path:'adminSearchUsers',component:AdminSearchUsersComponent},
+      {path:'adminCreateProduct',component:AdminCreateProductComponent},  
+    {path:'adminSearchProducts',component:AdminSearchProductsComponent},
+    {path:'adminSearchTransactions',component:AdminSearchTransactionsComponent},
+    {path:'adminEditUser',component:AdminEditUserComponent},
+    {path:'adminEditProduct',component:AdminEditProductComponent}
+    ]}
 
 ];
 
@@ -59,3 +66,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

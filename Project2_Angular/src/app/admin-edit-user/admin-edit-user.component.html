@@ -1,0 +1,104 @@
+<br /><br /><br />
+<table>
+  <tr>
+    <th width="20%"></th>
+    <th>
+      <div class="animated animatedFadeInUp fadeInUp" data-wow-delay=".3s">
+
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+          <form (ngSubmit)="updateUser()" #userForm="ngForm">
+            <div class="col-md-12 register-right">
+
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h2><strong>Edit User: <u>{{ user.firstName }} {{ user.lastName }}</u></strong> </h2>
+                  <br /><br />
+                  <div class="row register-form" align-items="center">
+                     
+                    <div class="col-md-6 ">
+                      <div class="form-group">
+                        <h5 class="col-md-12 font-weight-bold text-left">First Name: </h5>
+                        <input type="text" name="firstName" class="input100"  placeholder="First Name *" [(ngModel)]="user.firstName" value="{{user.firstName}}" />
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Last Name: </h5>
+                      <div class="form-group">
+                        <input type="text" name="lastName" class="input100" placeholder="Last Name *" [(ngModel)]="user.lastName" value="{{user.lastName}}" />
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Phone Number: </h5>
+                      <div class="form-group">
+                          <input type="text" name="phone" minlength="10" maxlength="10" name="txtEmpPhone" class="input100"
+                            placeholder="Your Phone *" [(ngModel)]="user.phone" value="{{user.phone}}" />
+                        </div>
+                        <h5 class="col-md-12 font-weight-bold text-left">Address: </h5>
+                      <div class="form-group">
+                        <input type="text" name="street" class="input100" placeholder="Address *" [(ngModel)]="user.address" value="{{user.address}}" />
+                      </div>
+
+                      <!-- 
+                        <div class="form-group">
+                        <input type="text" name="city" class="form-control" placeholder="City *" value="" />
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="state" class="form-control" placeholder="State *" value="" />
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="zipCode" class="form-control" placeholder="Zip-code *" value="" />
+                      </div>
+                     -->
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="col-md-12 font-weight-bold text-left">Username: </h5>
+                        <div class="form-group">
+                            <input type="text" name="userName" class="input100" placeholder="UserName *" value="{{user.userName}}" disabled/>
+                            
+                          </div>
+                          <h5 class="col-md-12 font-weight-bold text-left">Email: </h5>
+                      <div class="form-group">
+                        <input type="email" name="email" class="input100" placeholder="Your Email *" value="{{user.email}}" [(ngModel)]="user.email"/>
+                      </div>
+                     
+                      <h5 class="col-md-12 font-weight-bold text-left">Security Question: </h5>
+                      <div class="input100 form-group">
+                        <select class="input100 form-control" name="question" value="{{user.securityQuestion}}" [(ngModel)]="user.securityQuestion">
+                          <option class="hidden" selected disabled>Please select your Sequrity Question</option>
+                          <option value="What is your Birthdate?">What is your Birthdate?</option>
+                          <option value="What is Your old Phone Number?">What is Your old Phone Number?</option>
+                          <option value="What is your Pet Name?">What is your Pet Name?</option>
+                        </select>
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Security Answer: </h5>
+                      <div class="form-group">
+                        <input type="text" name="answer" class="input100" placeholder="Enter Your Answer *" value="{{user.securityAnswer}}" [(ngModel)]="user.securityAnswer"/>
+                      </div>
+                      <div></div>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div >
+                  <br/>
+                  <table>
+                    <tr>
+                      <th width="10%"></th>
+                      <th ><button class="login101-form-btn" (click)="goBack()">Back</button></th>
+                      <th width="50%"></th>
+                      <th><button class="login100-form-btn">Update</button></th>
+                      <th width="10%"></th>
+                    </tr>
+                  </table>
+                      </div>
+              </div>
+
+
+            </div>
+          </form>
+        </div>
+        <!-- </div> -->
+      </div>
+    </th>
+    <th width="20%"></th>
+  </tr>
+</table>

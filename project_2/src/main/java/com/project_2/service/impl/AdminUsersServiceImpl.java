@@ -39,4 +39,23 @@ public class AdminUsersServiceImpl implements AdminUsersService {
 		return userDao.findAll();
 	}
 
+	@Override
+	public void adminUserDelete(String userName) {
+		userDao.deleteById(userName);
+		
+	}
+
+	@Override
+	public User getUserByUsername(String userName) {
+		return userDao.findById(userName).get();
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		System.out.println("UpdateDAO: "+user);
+		return  userDao.save(user);
+	}
+
+
 }
