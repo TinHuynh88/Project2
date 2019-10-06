@@ -7,7 +7,11 @@
 } */
 
 #cnt{
-  display: inline-block;
+  display: block;
+}
+
+#cnt1{
+  display: center;
 }
 
 .register{
