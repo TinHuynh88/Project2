@@ -43,8 +43,6 @@ public class UserController {
 	
 	@Autowired
 	private OrderService orderService;
-	@Autowired
-	private ProductsService productService;
 	
 	@Autowired
 	private TransactionService transactionService;
