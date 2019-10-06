@@ -27,6 +27,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
+
+import { PaymentComponent } from './payment/payment.component';
+
 import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
 
 import { CreateProductComponent } from './create-product/create-product.component';
@@ -58,20 +61,17 @@ import { AdminEditProductComponent } from './admin-edit-product/admin-edit-produ
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
     ProductPageComponent,
+    PaymentComponent,
     AdminSearchTransactionsComponent,
-
     CreateProductComponent,
-
     AdminEditUserComponent,
-
     AdminEditProductComponent
-
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

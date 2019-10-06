@@ -16,7 +16,8 @@ export class ProductPageComponent implements OnInit {
   session: string[];
   products: Product[] = [];
 
-  constructor(private project2Service: Project2Service,private productsService: ProductsService, private router: Router) { }
+
+  constructor(private project2Service: Project2Service, private productsService: ProductsService, private router: Router) { }
 
   ngOnInit() {
     this.productsService.getAllProducts().subscribe( data => {
@@ -24,6 +25,7 @@ export class ProductPageComponent implements OnInit {
         this.products.push(prod);
       });
     });
+
     this.project2Service.getUserSession().subscribe(data => {
       this.session = data;
       if (this.session == null) {
