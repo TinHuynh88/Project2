@@ -46,8 +46,15 @@ public class AdminUsersServiceImpl implements AdminUsersService {
 	}
 
 	@Override
-	public User getUserByName(String userName) {
+	public User getUserByUsername(String userName) {
 		return userDao.findById(userName).get();
 	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return  userDao.save(user);
+	}
+
 
 }

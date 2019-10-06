@@ -12,9 +12,20 @@ import { Project2Service } from '../project2.service';
 export class AdminHomeComponent implements OnInit {
 
   session:string[];
+ 
   constructor(private project2Service:Project2Service,private router:Router) {
-  
+
    
+    
+  }
+
+  adminLogout(){
+    if(confirm("Do you want to Log Out ?")) {
+      console.log("Implement delete functionality here");
+      this.project2Service.adminLogout().subscribe(data=>{
+        this.router.navigate(['/adminLogin']);
+      });
+    }
     
   }
 

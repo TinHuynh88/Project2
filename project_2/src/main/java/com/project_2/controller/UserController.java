@@ -42,6 +42,11 @@ public class UserController {
 	private UserService service1;
 	
 	@Autowired
+	private OrderService orderService;
+	@Autowired
+	private ProductsService productService;
+	
+	@Autowired
 	private TransactionService transactionService;
 	
 	@Autowired
@@ -69,10 +74,11 @@ public class UserController {
 	}
 	
 	
-	@PostMapping("/login")
-	public User userLogin(User user) {
-		
+	@PostMapping("/userLogin")
+	public User userLogin(@RequestBody User user) {
+		System.out.println(user);
 		List<String> message1 = new ArrayList<>();
+		user.setPassword(encryptPassword(user.getPassword()));
 		User user1 = service1.userLogin(user);
 		if(user1 != null) {
 			message1.add(user1.getUserName());
@@ -81,11 +87,12 @@ public class UserController {
 			this.httpSession.setAttribute("USERNAME_SESSION", message1);
 		}
 		
-		return user;
+		return user1;
 	}
 	
 	@PostMapping("/userRegister") 
 	public User userRegister(@RequestBody User user) {
+		user.setPassword(encryptPassword(user.getPassword()));
 		return service1.userRegister(user);
 	}
 	
@@ -128,6 +135,25 @@ public class UserController {
 	public Order createOrder (@RequestBody Order order) {
 		return orderService.createOrder(order);
 	}
+  //////////////Test  
+    @PostMapping("/create")
+	public Order create (@RequestBody Order order) {
+		// implement here
+		return orderService.createOrder(order);
+	}
+    
+    @PostMapping("/createP")
+	public Products createP (@RequestBody Products product) {
+		// implement here
+		return productService.createProduct(product);
+	}
+    
+    @GetMapping("/productss")
+	public List<Products> getAllProducts() {
+		
+		return productService.getAllProducts();
+	}
+ ///////////////////////////////////////////   
     
     @GetMapping("/orders")
     public List<Order> getAllOrders() {

@@ -21,7 +21,11 @@ import { AdminSearchProductsComponent } from './admin-search-products/admin-sear
 import { AdminSearchUsersComponent } from './admin-search-users/admin-search-users.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
+
 import { CreateProductComponent } from './create-product/create-product.component';
+
+import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
+
 
 
 const routes: Routes = [
@@ -45,13 +49,15 @@ const routes: Routes = [
     {path:'createProduct',component:CreateProductComponent}
   ]},
   {path:'adminLogin', component:AdminLoginComponent},
-    {path:'adminHome',component:AdminHomeComponent},
+    {path:'adminHome',component:AdminHomeComponent, children:[
+      {path:'adminSearchUsers',component:AdminSearchUsersComponent},
+      {path:'adminCreateProduct',component:AdminCreateProductComponent},  
+    {path:'adminSearchProducts',component:AdminSearchProductsComponent},
+    {path:'adminSearchTransactions',component:AdminSearchTransactionsComponent},
+    {path:'adminEditUser',component:AdminEditUserComponent},
+    ]}
     
-    {path:'adminSearchUsers',component:AdminSearchUsersComponent},
-    {path:'adminCreateProduct',component:AdminCreateProductComponent},
-
-  {path:'adminSearchProducts',component:AdminSearchProductsComponent},
-  {path:'adminSearchTransactions',component:AdminSearchTransactionsComponent}
+    
 
 ];
 

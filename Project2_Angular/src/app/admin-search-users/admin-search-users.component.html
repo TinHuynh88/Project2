@@ -34,14 +34,14 @@
               <th scope="col">Delete</th>
             </tr>
             <tr *ngFor="let u of userList">
-                <td>{{u.userName}}</td>
+                <td (click)="goEditUser(u)" style= "cursor: pointer"><u >{{u.userName}}</u></td>
                 <td>{{u.email}}</td>
                 <td>{{u.firstName}}</td>
                 <td>{{u.lastName}}</td>
                 <td>{{u.address}}</td>
                 <td>{{u.securityQuestion}}</td>
                 <td>{{u.securityAnswer}}</td>
-                <td><button (click)="deleteByUsername(u)">Delete</button></td>
+                <td><button (click)="deleteByUsername(u)" >Delete</button></td>
             </tr>
           </table>
 
@@ -53,3 +53,4 @@
   </div>
 
 </section>
+<!-- <app-admin-edit-user [user]=user></app-admin-edit-user> -->
