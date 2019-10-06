@@ -112,6 +112,18 @@ public class ProductsServiceImpl implements ProductsService {
 		return prodList;
 	}
 
+	@Override
+	public void deleteProductById(long productId) {
+		productsDao.deleteById(productId);
+		
+	}
+
+	@Override
+	public List<Products> getProductBySearch(String search) {
+		System.out.println("General Search: "+search);
+		return productsDao.generalSearchProduct("%"+search.toLowerCase()+"%");
+	}
+
 	/*
 	 * @Override public Products createProducts(Products product) { return
 	 * productsDao.save(product); }

@@ -5,18 +5,18 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="text-center">
-          <input type="text" class="form-control" id="search" name="search"
-            placeholder="Enter Product Infomation like ID, name, price, release date,.. to search">
-          <hr>
-          <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
-          <button type="button" class="btn-info" name="userSearch"  id="showTable" >
-        <span class="glyphicon glyphicon-search"></span> Search
-      </button>
-     
-          <hr>
-        </div>
-
+        <form (ngSubmit)="searchProduct()" #userForm="ngForm">
+          <div class="text-center">
+            <input type="text" class="form-control" id="search" name="search" [(ngModel)]="searchValue"
+              placeholder="Enter Product Infomation like ID, name, price, release date,.. to search">
+            <hr>
+            <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
+            <button class="btn-info" name="userSearch" id="showTable">
+              <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+            <hr>
+          </div>
+        </form>
       </div>
     </div>
     <div class="row">
@@ -33,6 +33,17 @@
               <th scope="col">System</th>
               <th scope="col">Rating</th>
               <th scope="col">Delete</th>
+            </tr>
+            <tr *ngFor="let u of prodList">
+              <td (click)="goEditProduct(u)" style="cursor: pointer"><u>{{u.productId}}</u></td>
+              <td>{{u.productName}}</td>
+              <td>{{u.productPrice}}</td>
+              <td>{{u.releaseDate}}</td>
+              <td>{{u.category}}</td>
+              <td>{{u.quantity}}</td>
+              <td>{{u.system}}</td>
+              <td>{{u.rating}}</td>
+              <td><button (click)="deleteProductById(u)">Delete</button></td>
             </tr>
           </table>
 
