@@ -1,8 +1,6 @@
 package com.project_2.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
@@ -20,7 +18,7 @@ public class ProductsServiceImpl implements ProductsService {
 	private List<Products> prodList;
 	
 	public ProductsServiceImpl() {
-		// TODO Auto-generated constructor stub
+		// EMPTY CONSTRUCTOR BUSINESS STANDARD
 	}
 
 	@Override
@@ -29,8 +27,8 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 
 	@Override
-	public void deleteProduct(long productId) {
-		productsDao.deleteById(productId);		
+	public void deleteProduct(Products product) {
+		productsDao.delete(product);		
 	}
 
 	@Override
@@ -51,9 +49,9 @@ public class ProductsServiceImpl implements ProductsService {
 
 	@Override
 	public List<Products> getProductsByName(Products product) {
-		List<Products> prodList = new ArrayList<>();
+		/* List<Products> prodList = new ArrayList<Products>(); */
 		productsDao.findAll().forEach( prod -> {
-			if ( prod.getProductName()!=null && prod.getProductName() == product.getProductName()) {
+			if ( prod.getProductName()!=null && prod.getProductName().equals(product.getProductName())) {
 				this.prodList.add(prod);
 			}
 		});
@@ -62,32 +60,56 @@ public class ProductsServiceImpl implements ProductsService {
 
 	@Override
 	public List<Products> getProductsBySystem(Products product) {
-		// TODO Auto-generated method stub
-		return null;
+		/* List<Products> prodList = new ArrayList<Products>(); */
+		productsDao.findAll().forEach( prod -> {
+			if ( prod.getSystem()!=null && prod.getSystem().equals(product.getSystem())) {
+				this.prodList.add(prod);
+			}
+		});
+		return prodList;
 	}
 
 	@Override
 	public List<Products> getProductsByCategory(Products product) {
-		// TODO Auto-generated method stub
-		return null;
+		/* List<Products> prodList = new ArrayList<Products>(); */
+		productsDao.findAll().forEach( prod -> {
+			if ( prod.getCategory()!=null && prod.getCategory().equals(product.getCategory())) {
+				this.prodList.add(prod);
+			}
+		});
+		return prodList;
 	}
 
 	@Override
 	public List<Products> getProductsByRating(Products product) {
-		// TODO Auto-generated method stub
-		return null;
+		/* List<Products> prodList = new ArrayList<Products>(); */
+		productsDao.findAll().forEach( prod -> {
+			if ( prod.getRating()!=0.0f && prod.getRating() == product.getRating()) {
+				this.prodList.add(prod);
+			}
+		});
+		return prodList;
 	}
 
 	@Override
 	public List<Products> getProductsByReleaseDate(Products product) {
-		// TODO Auto-generated method stub
-		return null;
+		/* List<Products> prodList = new ArrayList<Products>(); */
+		productsDao.findAll().forEach( prod -> {
+			if ( prod.getCategory()!=null && prod.getCategory().equals(product.getCategory())) {
+				this.prodList.add(prod);
+			}
+		});
+		return prodList;
 	}
 
 	@Override
 	public List<Products> getProductsByPrice(Products product) {
-		// TODO Auto-generated method stub
-		return null;
+		productsDao.findAll().forEach( prod -> {
+			if ( prod.getProductPrice()!=0.0d && prod.getProductPrice() == product.getProductPrice()) {
+				this.prodList.add(prod);
+			}
+		});
+		return prodList;
 	}
 
 	/*
