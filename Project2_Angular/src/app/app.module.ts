@@ -59,7 +59,7 @@ import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.compon
     ProductPageComponent,
     AdminSearchTransactionsComponent,
 
-    CreateProductComponent
+    CreateProductComponent,
 
     AdminEditUserComponent
 
