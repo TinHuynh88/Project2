@@ -10,8 +10,9 @@ export class Product {
   rating: number;
   system: string;
   // URL
-  pictures: string[];
-
+  picture1: string;
+  picture2: string;
+  picture3: string;
   // constructor (productId:number,
   //   productName:string,
   //   productPrice:number,

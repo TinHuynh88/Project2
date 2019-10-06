@@ -6,7 +6,7 @@
         <div *ngFor="let product of products; let i = index; trackBy: trackByFn">
           <!-- PRODUCT CARD -->
           <div class="card" id="productCard">
-            <img class="card-img" src="{{ products[i].pictures[0] }}" alt="Card Image">
+            <img class="card-img" src="{{ products[i].picture1 }}" alt="Card Image">
             <div class="card-image-overlay">
 
               <p class="card-title">{{ products[i].productName}}</p>
