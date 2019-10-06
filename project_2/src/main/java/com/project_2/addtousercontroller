@@ -1,9 +1,0 @@
-	@PostMapping("/createProduct")
-	public Products createProduct(@RequestBody Products product) {
-		return productsService.createProduct(product);
-	}
-	
-	@GetMapping("/products")
-	public List<Products> getAllProducts() {
-		return productsService.getAllProducts();
-	}
