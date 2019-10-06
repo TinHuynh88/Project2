@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project_2.service.UserService;
 import com.project_2.model.Order;
+import com.project_2.model.Products;
 import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
+import com.project_2.service.OrderService;
+import com.project_2.service.ProductsService;
 import com.project_2.service.TransactionService;
 
 
@@ -37,6 +40,11 @@ public class UserController {
 
 	@Autowired
 	private UserService service1;
+	
+	@Autowired
+	private OrderService orderService;
+	@Autowired
+	private ProductsService productService;
 	
 	@Autowired
 	private TransactionService transactionService;
@@ -113,6 +121,25 @@ public class UserController {
 		// implement here
 		return order;
 	}
+  //////////////Test  
+    @PostMapping("/create")
+	public Order create (@RequestBody Order order) {
+		// implement here
+		return orderService.createOrder(order);
+	}
+    
+    @PostMapping("/createP")
+	public Products createP (@RequestBody Products product) {
+		// implement here
+		return productService.createProduct(product);
+	}
+    
+    @GetMapping("/productss")
+	public List<Products> getAllProducts() {
+		
+		return productService.getAllProducts();
+	}
+ ///////////////////////////////////////////   
     
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

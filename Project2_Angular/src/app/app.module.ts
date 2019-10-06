@@ -28,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
+import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AdminSearchTransactionsComponent } from './admin-search-transactions/ad
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
     ProductPageComponent,
-    AdminSearchTransactionsComponent
+    AdminSearchTransactionsComponent,
+    AdminEditUserComponent
   ],
   imports: [
     BrowserModule,
