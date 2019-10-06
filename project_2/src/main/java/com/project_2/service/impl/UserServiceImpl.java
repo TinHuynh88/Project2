@@ -28,9 +28,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User userLogin(User user) {
 		// TODO Auto-generated method stub
-		System.out.println("TEST= "+user);
+		//System.out.println("TEST= "+user);
 		User user1 = userDao.userLogin(user.getUserName(), user.getPassword());
-		System.out.println("TEST 1= "+user1);
+		//System.out.println("TEST 1= "+user1);
 		if (user1 != null && user1.getRole().equals("User")) {
 			return user1;
 		} else {

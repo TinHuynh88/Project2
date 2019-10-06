@@ -6,6 +6,8 @@ import { RegisterComponent } from '../register/register.component';
 import { CartComponent } from '../cart/cart.component';
 import { UserAccountComponent } from '../user-account/user-account.component';
 import { ProductPageComponent } from '../product-page/product-page.component';
+import { Project2Service } from '../project2.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home',
@@ -24,9 +26,23 @@ export class HomeComponent implements OnInit {
   account: UserAccountComponent;
   products: ProductPageComponent;
 
-  constructor() { }
+  session:string[];
+  constructor(private project2Service:Project2Service,private router:Router) {
+
+  //  
+   }
 
   ngOnInit() {
+    this.project2Service.getSession().subscribe(data=>{
+      this.session=data;
+      if(this.session==null){
+        console.log('test');
+        this.router.navigate(['/home/login']);
+      }else{
+        console.log('test 2');
+        this.loggedIn = true;
+      }
+    });
 
   }
 

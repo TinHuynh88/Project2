@@ -48,11 +48,12 @@ export class LoginComponent implements OnInit {
       if (this.user != null) {
        
         console.log("test after- " + this.user.userName);
+        
         this.router.navigate(['/home']);
       } else {
         
         this.user = new User();
-        this.errMessage = "Username and/or password is incorrect.";
+        this.errMessage = "Username and/or password is not entered.";
       }
     });
   }
