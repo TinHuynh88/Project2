@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { User } from './user';
 import { Observable } from 'rxjs';
+import { Product } from './product';
 
 
 @Injectable({
@@ -17,6 +18,11 @@ export class Project2Service {
   private getUserByUsernameUrl:string;
   private updateUserUrl:string;
   private userLoginUrl: string;
+  private getAllProductsUrl: string;
+  private deleteProductByIdUrl: string;
+  private generalSearchProductUrl:string;
+  private getUserSessionUrl: string;
+  private userLogOutUrl: string;
 
   constructor(private http:HttpClient) { 
     this.adminLoginUrl="http://localhost:3000/adminLogin";
@@ -28,7 +34,11 @@ export class Project2Service {
     this.getUserByUsernameUrl="http://localhost:3000//adminUser/";
     this.updateUserUrl="http://localhost:3000/adminUpdateUser";
     this.userLoginUrl="http://localhost:3000/userLogin";
-    
+    this.getAllProductsUrl="http://localhost:3000/products";
+    this.deleteProductByIdUrl="http://localhost:3000/product/";
+    this.generalSearchProductUrl="http://localhost:3000/searchProducts/";
+    this.getUserSessionUrl="http://localhost:3000/getUserSession";
+    this.userLogOutUrl= "http://localhost:3000/userLogout";
   }
 
   public adminLogin(user: User){
@@ -63,5 +73,25 @@ export class Project2Service {
 
   public userLogin(user: User){
     return this.http.post<User>(this.userLoginUrl, user);
+  }
+  public getAllProducts(){
+    return this.http.get<Product[]>(this.getAllProductsUrl);
+  }
+  public deleteProductById(product:Product){
+    console.log("Delete at service: "+product.productId);
+    return this.http.delete<Product>(this.deleteProductByIdUrl+product.productId);
+  }
+
+  public generalSearchProduct(search: string){
+    console.log("search 3: "+this.generalSearchProductUrl+search);
+    return this.http.get<Product[]>(this.generalSearchProductUrl+search);
+  }
+
+  public getUserSession():Observable<string[]>{
+    return this.http.get<string[]>(this.getUserSessionUrl);
+  }
+
+  public userLogout(){
+    return this.http.get(this.userLogOutUrl);
   }
 }

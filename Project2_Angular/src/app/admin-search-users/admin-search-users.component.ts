@@ -16,6 +16,7 @@ export class AdminSearchUsersComponent implements OnInit {
   // user:User;
   session: string[];
   userList: User[];
+  searchValue:string;
   constructor(private project2Service: Project2Service, private router: Router) {
 
     //  

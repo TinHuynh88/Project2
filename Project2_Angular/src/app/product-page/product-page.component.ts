@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { Project2Service } from '../project2.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-page',
@@ -9,12 +11,33 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 })
 export class ProductPageComponent implements OnInit {
   product: Product;
-
+  loggedIn :boolean;
+  session: string[];
   products: Product[] = [];
 
-  constructor() { }
+  constructor(private project2Service: Project2Service, private router: Router) { }
 
   ngOnInit() {
+    this.project2Service.getUserSession().subscribe(data => {
+      this.session = data;
+      if (this.session == null) {
+        console.log("logged product = false");
+        this.loggedIn=false;
+
+      } else {
+        console.log("logged product= true");
+        this.loggedIn=true;
+//        window.location.reload();
+        //show the 'add' button in items
+
+
+        // this.project2Service.getAllUsers().subscribe(data => {
+        //   this.userList = data;
+        // });
+      }
+    });
+  
+   
   //   const p1 = new Product(100, 'Super Mario World', 34, '1991/03/25',
   //     'Platformer', 7, 10, 'SNES',
   //     ['http://content.propertyroom.com/listings/sellers/seller888888939/images/origimgs/888888939_183201702445865.jpg']);

@@ -58,6 +58,7 @@ public class UserController {
 	
 	private HttpSession httpSession;
 	
+	@GetMapping("/getUserSession")
 	public List<String> getSession(){
 		
 		try {
@@ -140,17 +141,6 @@ public class UserController {
 		return orderService.createOrder(order);
 	}
     
-    @PostMapping("/createP")
-	public Products createP (@RequestBody Products product) {
-		// implement here
-		return productService.createProduct(product);
-	}
-    
-    @GetMapping("/productss")
-	public List<Products> getAllProductsss() {
-		
-		return productService.getAllProducts();
-	}
  ///////////////////////////////////////////   
     @GetMapping("/orders")
     public List<Order> getAllOrders() {
@@ -166,7 +156,11 @@ public class UserController {
         return orderService.getOrdersByProductId(productId);
     };
        
-  
+    @GetMapping("/userLogout")
+	public void adminLogout() {
+		System.out.println("User Logout");
+		this.httpSession.invalidate();
+	}
     
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

@@ -16,6 +16,10 @@ public interface ProductsService {
 	public List<Products> getProductsByRating(Products product);
 	public List<Products> getProductsByReleaseDate(Products product);
 	public List<Products> getProductsByPrice(Products product);
+	
+
+	public void deleteProductById(long productId);
+	public List<Products> getProductBySearch(String search);
 
 }
 

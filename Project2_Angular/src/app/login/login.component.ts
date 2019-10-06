@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   form:FormGroup;
 
   user:User;
-
+  session: string[];
   errMessage: string;
 
   constructor(private formBuilder:FormBuilder, private project2Service: Project2Service, private router: Router) { 
@@ -29,6 +29,20 @@ export class LoginComponent implements OnInit {
       password: new FormControl ('', [Validators.required,Validators.minLength(5)])
     });
 
+    this.project2Service.getUserSession().subscribe(data => {
+      this.session = data;
+      if (this.session == null) {
+        console.log("logged = false");
+       // this.loggedIn=false;
+      } else {
+        console.log("logged = true");
+        this.router.navigate(['/home']);
+       // this.loggedIn=true;
+        // this.project2Service.getAllUsers().subscribe(data => {
+        //   this.userList = data;
+        // });
+      }
+    });
     
   }
 
@@ -48,7 +62,9 @@ export class LoginComponent implements OnInit {
       if (this.user != null) {
        
         console.log("test after- " + this.user.userName);
-        this.router.navigate(['/home']);
+        window.location.reload();
+     //   this.router.navigate(['/home/products']);
+        
       } else {
         
         this.user = new User();
