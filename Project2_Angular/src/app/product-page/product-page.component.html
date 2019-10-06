@@ -6,13 +6,15 @@
         <div *ngFor="let product of products; let i = index; trackBy: trackByFn">
           <!-- PRODUCT CARD -->
           <div class="card" id="productCard">
-            <img class="card-img" src="{{ products[i].pictures[0] }}" alt="Card Image">
+              <a class="nav-link" routerLink="productCard">
+                <img class="card-img" src="{{ products[i].pictures[0] }}" alt="Card Image">
+              </a>
             <div class="card-image-overlay">
 
               <p class="card-title">{{ products[i].productName}}</p>
               <p class="card-text"> {{ products[i].system}} </p>
               <p class="card-text">Released: {{ products[i].releaseDate }}</p>
-              <p class="card-text">Category: {{ products[i].category }}</p> 
+              <p class="card-text">Category: {{ products[i].category }}</p>
               
             </div>
 
