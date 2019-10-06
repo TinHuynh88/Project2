@@ -6,7 +6,7 @@ import com.project_2.model.Products;
 public interface ProductsService {
 	
 	public Products createProduct(Products product);
-	public void deleteProduct(long productId);
+	public void deleteProduct(Products product);
 	public Products updateProduct(Products product);
 	public List<Products> getAllProducts();
 	public Products getProductsById(long productId);
