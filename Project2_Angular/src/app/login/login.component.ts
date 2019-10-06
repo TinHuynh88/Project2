@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       username: new FormControl ('', [Validators.required]),
-      password: new FormControl ('', [Validators.required,Validators.minLength(5)])
+      password: new FormControl ('', [Validators.required])
     });
 
     
@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin(){
+    if(this.user.userName == undefined || this.user.password == undefined){
+      this.errMessage="Please enter username or password";
+      return ;
+    }
     console.log(this.user.password+" test ter- " +this.user.userName);
     this.project2Service.userLogin(this.user).subscribe(data => {
       this.user = data;

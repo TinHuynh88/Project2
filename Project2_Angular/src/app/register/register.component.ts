@@ -33,8 +33,8 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('',[Validators.email]),
       password: new FormControl('',[Validators.required]),
       confirmPassword: new FormControl('',[Validators.required]),
-      question: new FormControl('',[Validators.required]),
-      answer: new FormControl('',[Validators.required])
+      securityQuestion: new FormControl('',[Validators.required]),
+      securityAnswer: new FormControl('',[Validators.required])
     });
 
   }
@@ -85,15 +85,19 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('confirmPassword')
   }
 
-  get question(){
-    return this.registerForm.get('question')
+  get securityQuestion(){
+    return this.registerForm.get('securityQuestion')
   }
 
-  get answer(){
-    return this.registerForm.get('answer')
+  get securityAnswer(){
+    return this.registerForm.get('securityAnswer')
   }
 
   userRegister(){
+    if(this.user.userName == undefined || this.user.password == undefined){
+      this.errMessage="Please fill out all the fields.";
+      return ;
+    }
     this.project2Service.userLogin(this.user).subscribe(data => {
       this.user = data;
       
@@ -105,7 +109,7 @@ export class RegisterComponent implements OnInit {
       } else {
         
         this.user = new User();
-        this.errMessage = "Please fill out all the fields.";
+        this.errMessage = "Please fill remaining fields.";
       }
     });
   }

@@ -1,5 +1,7 @@
 package com.project_2.service.impl;
 
+import java.security.MessageDigest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,36 @@ public class UserServiceImpl implements UserService {
 		}
 
 		return user1;
+	}
+
+	@Override
+	public User forgotPassword(User user) {
+		
+		User user1 = userDao.userLogin(user.getUserName(), user.getPassword());
+		if(user1 != null && user1.getRole().equals("User") && user1.getSecurityQuestion().equals("question") && user1.getSecurityAnswer().equals("answer")) {
+			user1.setPassword(encryptPassword(user.getPassword()));
+		}
+		return null;
+	}
+	
+	/////////////////////////////////////////////////////
+	public String encryptPassword(String password) {
+		StringBuffer message = new StringBuffer();
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-1");
+			byte[] hash = md.digest(password.getBytes("UTF-8"));
+
+			for (byte w : hash) {
+				message.append(String.format("%02x", w));
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return message.toString();
+
 	}
 
 }
