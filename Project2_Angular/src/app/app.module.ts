@@ -36,6 +36,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
 
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { AdminEditProductComponent } from './admin-edit-product/admin-edit-produ
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
     ProductPageComponent,
+    ProductCardComponent,
     PaymentComponent,
     AdminSearchTransactionsComponent,
     CreateProductComponent,

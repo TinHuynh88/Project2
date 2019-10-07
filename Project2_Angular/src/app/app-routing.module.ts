@@ -25,39 +25,44 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo: 'home/products', pathMatch: 'full'},
-  {path:'home', redirectTo: 'home/products', pathMatch: 'full'},
-  {path:'home',component:HomeComponent, children: [    
-    {path:'products',component:ProductPageComponent},
-    {path:'login',component:LoginComponent},
-    {path:'logout',component:LogoutComponent},
-    {path:'logoutConfirm',component:LogoutConfirmComponent},
-    {path:'register',component:RegisterComponent},
-    {path:'registerSuccess',component:RegisterSuccessComponent},
-    {path:'forgotPassword',component:ForgotPasswordComponent},
-    {path:'changePassword',component:ChangePasswordComponent},
-    {path:'changePasswordSuccess',component:ChangePasswordSuccessComponent},
-    {path:'cart',component:CartComponent},
-    {path:'orderConfirmation',component:OrderConfirmationComponent},
-    {path:'orderSuccess',component:OrderSuccessComponent},
-    {path:'userAccount',component:UserAccountComponent},
-    {path:'userOrders',component:UserOrdersComponent},
-    {path:'createProduct',component:CreateProductComponent},
-    {path:'payment',component:PaymentComponent}
-
-  ]},
-  {path:'adminLogin', component:AdminLoginComponent},
-    {path:'adminHome',component:AdminHomeComponent, children:[
-      {path:'adminSearchUsers',component:AdminSearchUsersComponent},
-      {path:'adminCreateProduct',component:AdminCreateProductComponent},  
-    {path:'adminSearchProducts',component:AdminSearchProductsComponent},
-    {path:'adminSearchTransactions',component:AdminSearchTransactionsComponent},
-    {path:'adminEditUser',component:AdminEditUserComponent},
-    {path:'adminEditProduct',component:AdminEditProductComponent}
-    ]}
+  { path: '', redirectTo: 'home/products', pathMatch: 'full' },
+  { path: 'home', redirectTo: 'home/products', pathMatch: 'full' },
+  {
+    path: 'home', component: HomeComponent, children: [
+      { path: 'products', component: ProductPageComponent},
+      { path: 'products/:id', component: ProductCardComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+      { path: 'logoutConfirm', component: LogoutConfirmComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'registerSuccess', component: RegisterSuccessComponent },
+      { path: 'forgotPassword', component: ForgotPasswordComponent },
+      { path: 'changePassword', component: ChangePasswordComponent },
+      { path: 'changePasswordSuccess', component: ChangePasswordSuccessComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'orderConfirmation', component: OrderConfirmationComponent },
+      { path: 'orderSuccess', component: OrderSuccessComponent },
+      { path: 'userAccount', component: UserAccountComponent },
+      { path: 'userOrders', component: UserOrdersComponent },
+      { path: 'createProduct', component: CreateProductComponent },
+      { path: 'payment', component: PaymentComponent }
+    ]
+  },
+  { path: 'adminLogin', component: AdminLoginComponent },
+  {
+    path: 'adminHome', component: AdminHomeComponent, children: [
+      { path: 'adminSearchUsers', component: AdminSearchUsersComponent },
+      { path: 'adminCreateProduct', component: AdminCreateProductComponent },
+      { path: 'adminSearchProducts', component: AdminSearchProductsComponent },
+      { path: 'adminSearchTransactions', component: AdminSearchTransactionsComponent },
+      { path: 'adminEditUser', component: AdminEditUserComponent },
+      { path: 'adminEditProduct', component: AdminEditProductComponent }
+    ]
+  }
 
 ];
 

@@ -2,6 +2,7 @@ package com.project_2.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,10 +23,10 @@ public class Order implements Serializable{
 	@GeneratedValue
 	private long orderId;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private Transaction transaction;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private Products products;
 	 
 	private int quantitySold;

@@ -29,8 +29,12 @@ public class DataLoader {
 			userDao.save(new User("a",encryptPassword("a"),"a@yahoo.com","Thanh","Huynh","111 aaa, irving, tx 75060","555-555-5555","What is Your old Phone Number?","aaa","Admin"));
 			
 			// INITIALIZED PRODUCTS
-			productsDao.save(new Products(0, "Donkey Kong Country", 12.0, "05 Oct 2019", "Platformer", 23, 9.0f, "SNES",
+			productsDao.save(new Products(0, "Donkey Kong Country", 27.0, "16 Oct 1994", "Platformer", 6, 9.0f, "SNES",
 	                "http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg",
+	                "http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg",
+	                "http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg"));
+			productsDao.save(new Products(0, "Super Mario World", 29.0, "04 May 1991", "Platformer", 3, 9.0f, "SNES",
+	                "http://content.propertyroom.com/listings/sellers/seller888888939/images/origimgs/888888939_183201702445865.jpg",
 	                "http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg",
 	                "http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg"));
 	  }

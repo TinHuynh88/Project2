@@ -1,3 +1,24 @@
-<div>
-  <h2>Welcome to your Shopping Cart, User Name </h2>
+<div class="container cartStyle">
+  <h2>Welcome to your Shopping Cart, {{ user.userName }} </h2>
+  <div *ngFor="let order of orders; let i = index; trackBy: trackByFn" class="row lineItem">
+    <div class="col-xs-4 col-sm-4">
+      <h3> {{ orders[i].product.productName }} </h3>
+      <h3> {{ orders[i].product.system }} </h3>
+    </div>
+    
+    <div class="col-xs-4 col-sm-4">
+      <h3> Quantity: {{ orders[i].quantitySold }} </h3>
+      <h3> Price: $ {{ orders[i].product.productPrice }} </h3>
+    </div>
+    
+    <div class="col-xs-4 col-sm-4">
+        <h3> Sub-Total: $ {{ orders[i].totalUnitPrice }} </h3>
+    </div>
+  </div>
+  <div class="lineItem">
+
+    <h3> {{ transTotal }} </h3>
+    <button (click)="createTransaction()">Purchase Now</button>
+  
+  </div>
 </div>

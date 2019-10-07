@@ -116,6 +116,11 @@ public class UserController {
 	public List<Products> getAllProducts() {
 		return productsService.getAllProducts();
 	}
+	
+	@GetMapping("/products/{id}")
+	public Products getProductsById(@PathVariable long productId) {
+		return productsService.getProductsById(productId);
+	}
 
 	
 	@PostMapping("/createTransaction")

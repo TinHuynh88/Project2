@@ -1,13 +1,13 @@
 <div id="productMain">
-
     <div class="container">
       
       <div class="card-columns">
         <div *ngFor="let product of products; let i = index; trackBy: trackByFn">
           <!-- PRODUCT CARD -->
           <div class="card" id="productCard">
-              
+              <a class="nav-link" [routerLink]="['../products', i+1]">
                 <img class="card-img" src="{{ products[i].picture1 }}" alt="Card Image">
+              </a>
               
             <div class="card-image-overlay">
 
@@ -18,7 +18,7 @@
               
             </div>
 
-            <div> <!-- ngIf on add to cart button:: hook into parent's loggedIn value -->
+            <div *ngIf="loggedIn"> <!-- ngIf on add to cart button:: hook into parent's loggedIn value -->
               <input value="Add to Cart" type="button" onsubmit="addToCart()">
             </div>
             
