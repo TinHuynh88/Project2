@@ -6,15 +6,22 @@
         <div *ngFor="let product of products; let i = index; trackBy: trackByFn">
           <!-- PRODUCT CARD -->
           <div class="card" id="productCard">
-            <img class="card-img" src="{{ products[i].picture }}" alt="Card Image">
+              <a class="nav-link" routerLink="productCard">
+                <img class="card-img" src="{{ products[i].pictures[0] }}" alt="Card Image">
+              </a>
             <div class="card-image-overlay">
+
               <p class="card-title">{{ products[i].productName}}</p>
               <p class="card-text"> {{ products[i].system}} </p>
               <p class="card-text">Released: {{ products[i].releaseDate }}</p>
-              <p class="card-text">Category: {{ products[i].category }}</p> 
-              <!-- ngIf on add to cart button -->
+              <p class="card-text">Category: {{ products[i].category }}</p>
+              
             </div>
-            <input type="button" onsubmit="addToCart()">
+
+            <div> <!-- ngIf on add to cart button:: hook into parent's loggedIn value -->
+                <input value="Add to Cart" type="button" onsubmit="addToCart()">
+            </div>
+            
            <!--  END OF CARD --> 
           </div>
         <!-- END OF FOR LOOP -->  

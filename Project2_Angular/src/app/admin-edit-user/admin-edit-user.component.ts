@@ -16,6 +16,7 @@ export class AdminEditUserComponent implements OnInit, OnDestroy {
   id: string;
   private sub: any;
   isUpdate: boolean;
+  session: string[];
 
   constructor(private project2Service: Project2Service, private router: Router, private route: ActivatedRoute, private location: Location) {
     this.user = new User();
@@ -23,30 +24,36 @@ export class AdminEditUserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    //  this.user = userTransfer;
-    this.sub = this.route.params.subscribe(params => {
-      this.id = params['id']; // +params['id'];  (+) converts string 'id' to a number
-    });
+    this.project2Service.getSession().subscribe(data => {
+      this.session = data;
+      if (this.session == null) {
+        this.router.navigate(['/adminLogin']);
+      } else {
+        this.sub = this.route.params.subscribe(params => {
+          this.id = params['id']; // +params['id'];  (+) converts string 'id' to a number
+        });
 
-    this.project2Service.getUserByUsername(this.id).subscribe(data => {
-      this.user = data;
+        this.project2Service.getUserByUsername(this.id).subscribe(data => {
+          this.user = data;
+        });
+      }
     });
+    //  this.user = userTransfer;
+   
+
+    
   }
 
-  updateUser(user: User) {
+  updateUser() {
 
     if (this.isUpdate) {
-      console.log("ddddddddddd"+user.userName);
-      this.project2Service.updateUser(user).subscribe(data => {
-        this.user = data;
-        if (this.user == null) {
-          console.log("Email unique");
-
-        } else {
-
-          this.router.navigate(['adminHome/adminSearchUsers']);
-        }
+      console.log("ddddddddddd"+this.user.userName);
+      console.log("dddd"+this.user.password);
+      this.project2Service.updateUser(this.user).subscribe(data=>{
+        this.user=data;
+        alert("Update User[ "+this.user.userName+" ] succeeded.");
       });
+      console.log("qqqq"+this.user.password);
     }
     // else{
     //   console.log("aaaaaaaaaaaaaaaaaaaaa");

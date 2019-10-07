@@ -2,8 +2,11 @@
 
   <form (ngSubmit)="createProduct()" #createProductForm="ngForm">
 
+<<<<<<< HEAD
     <h2>Product Id: {{ product.productId }} </h2>
     <input type="text" name="productId" value="0" [(ngModel)]="product.productId">
+=======
+>>>>>>> 0c53937840895473feea607f0f6ceabf6d5aa260
     <h2>Product Name: {{ product.productName }} </h2>
     <input type="text" name="productName" value="productName" [(ngModel)]="product.productName">
     <h2>Product Price: {{ product.productPrice }} </h2>
@@ -16,7 +19,16 @@
     <input type="text" name="quantity" value="quantity" [(ngModel)]="product.quantity">
     <h2>Product Rating: {{ product.rating }} </h2>
     <input type="text" name="rating" value="rating" [(ngModel)]="product.rating">
+<<<<<<< HEAD
     <h2>Product Pictures: {{ product.pictures }} </h2>
+=======
+    <h2>Product Picture 1: {{ product.picture1 }} </h2>
+    <input type="text" name="picture1" value="picture1" [(ngModel)]="product.picture1">
+    <h2>Product Picture 2: {{ product.picture2 }} </h2>
+    <input type="text" name="picture2" value="picture2" [(ngModel)]="product.picture2">
+    <h2>Product Picture 3: {{ product.picture3 }} </h2>
+    <input type="text" name="picture3" value="picture3" [(ngModel)]="product.picture3">
+>>>>>>> 0c53937840895473feea607f0f6ceabf6d5aa260
 
     <input type="submit" value="Create Product" />
   </form>

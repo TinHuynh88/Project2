@@ -14,6 +14,11 @@
         <div *ngIf="loggedIn; then in else loggedOut"></div>
         <ng-template #in>
           <li class="nav-item active">
+              <a class="nav-link" routerLink="createProduct">
+                <h4>Create Product</h4>
+              </a>
+            </li>
+          <li class="nav-item active">
             <a class="nav-link" routerLink="cart">
               <h4>Cart</h4>
             </a>
@@ -24,7 +29,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" routerLink="logout">
+            <a class="nav-link" data-toggle="dropdown" (click)="userLogout()">
               <h4>Logout</h4>
             </a>
           </li>
