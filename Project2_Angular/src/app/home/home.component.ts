@@ -8,6 +8,7 @@ import { UserAccountComponent } from '../user-account/user-account.component';
 import { ProductPageComponent } from '../product-page/product-page.component';
 import { Project2Service } from '../project2.service';
 import { Router } from '@angular/router';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'home',
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   cart: CartComponent;
   account: UserAccountComponent;
   products: ProductPageComponent;
+  productDetails: ProductCardComponent;
 
 
   session: string[];
@@ -34,25 +36,18 @@ export class HomeComponent implements OnInit {
     this.project2Service.getUserSession().subscribe(data => {
       this.session = data;
       if (this.session == null) {
-        console.log("logged = false");
-        this.loggedIn=false;
+        this.loggedIn = false;
       } else {
-        console.log("logged = true");
-        this.loggedIn=true;
-        // this.project2Service.getAllUsers().subscribe(data => {
-        //   this.userList = data;
-        // });
+        this.loggedIn = true;
       }
     });
   }
 
   userLogout(){
-    if(confirm("Do you want to Log Out ?")) {
-      console.log("Implement delete functionality here");
-      this.project2Service.userLogout().subscribe(data=>{
+    if (confirm('Do you want to Log Out ?')) {
+      this.project2Service.userLogout().subscribe(data => {
         window.location.reload();
       });
     }
-    
   }
 }

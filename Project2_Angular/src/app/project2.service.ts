@@ -6,8 +6,6 @@ import { Product } from './product';
 import { Transaction } from './transaction';
 import { Order } from './order';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,6 +24,10 @@ export class Project2Service {
   private generalSearchProductUrl:string;
   private getUserSessionUrl: string;
   private userLogOutUrl: string;
+
+  private createTransactionUrl: string;
+  private createOrderUrl: string;
+
   private updateProductUrl: string;
   private generalSearchUserUrl:string;
   private getAllTransactionUrl:string;
@@ -34,6 +36,7 @@ export class Project2Service {
   private userRegisterUrl: string;
   private updatePasswordUrl:string;
   
+
 
   constructor(private http:HttpClient) { 
     this.adminLoginUrl="http://localhost:3000/adminLogin";
@@ -50,6 +53,10 @@ export class Project2Service {
     this.generalSearchProductUrl="http://localhost:3000/searchProducts/";
     this.getUserSessionUrl="http://localhost:3000/getUserSession";
     this.userLogOutUrl= "http://localhost:3000/userLogout";
+
+    this.createTransactionUrl="http://localhost:3000/createTransaction";
+    this.createOrderUrl="http://localhost:3000/createOrder";
+
     this.updateProductUrl = "http://localhost:3000/adminUpdateProduct";
     this.generalSearchUserUrl="http://localhost:3000/searchUsers/";
     this.getAllTransactionUrl="http://localhost:3000/transactions";
@@ -57,15 +64,23 @@ export class Project2Service {
     this.generalSearchTransactionUrl="http://localhost:3000/searchTransactions/";
     this.userRegisterUrl="http://localhost:3000/userRegister";
     this.updatePasswordUrl="http://localhost:3000/adminUpdatePassword";
+
   }
 
+    public createTransaction(transaction) {
+    return this.http.post<Transaction>(this.createTransactionUrl, transaction);
+  }
+
+  public createOrder(order) {
+    return this.http.post<Order>(this.createOrderUrl, order);
+    
   public adminLogin(user: User){
     return this.http.post<User>(this.adminLoginUrl, user);
   }
-  public getSession():Observable<string[]>{
+  public getSession(): Observable<string[]>{
     return this.http.get<string[]>(this.getSessionUrl);
   }
-  public adminHome(){
+  public adminHome() {
     this.http.get(this.adminHomeUrl);
   }
 
@@ -73,8 +88,7 @@ export class Project2Service {
     return this.http.get<User[]>(this.usersUrl);
   }
 
-  public deleteByUsername(user:User){
-    console.log("Delete at service: "+user.userName);
+  public deleteByUsername(user: User){
     return this.http.delete<User>(this.deleteUserByUsernameUrl+user.userName);
   }
   public getUserByUsername(userName: string){
@@ -82,7 +96,6 @@ export class Project2Service {
   }
 
   public updateUser(user:User){
-    console.log("user: "+ user.firstName);
     return this.http.put<User>(this.updateUserUrl,user);
   }
   public adminLogout(){
@@ -96,12 +109,10 @@ export class Project2Service {
     return this.http.get<Product[]>(this.getAllProductsUrl);
   }
   public deleteProductById(product:Product){
-    console.log("Delete at service: "+product.productId);
     return this.http.delete<Product>(this.deleteProductByIdUrl+product.productId);
   }
 
   public generalSearchProduct(search: string){
-    console.log("search 3: "+this.generalSearchProductUrl+search);
     return this.http.get<Product[]>(this.generalSearchProductUrl+search);
   }
 

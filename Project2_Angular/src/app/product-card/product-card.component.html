@@ -1,19 +1,14 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <div>
+  <img src="{{ product.picture1 }}">
   <h1>{{ product.productName }}</h1>
   <h4>{{ product.productPrice }}</h4>
   <h4>{{ product.category }}</h4>
   <h4>{{ product.system }}</h4>
   <h4>{{ product.quantity }}</h4>
+  <h6>{{ outOfStockMessage }}</h6>
   <h4>{{ product.releaseDate }}</h4>
+  <div *ngIf="loggedIn">
+    <button (click)="addToCart( product.productId )" name="addToCart">Add to Cart</button>
+  </div>
 </div>
 

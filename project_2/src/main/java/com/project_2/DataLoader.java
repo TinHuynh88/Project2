@@ -26,6 +26,7 @@ public class DataLoader {
 	@Autowired
 	private ProductsDAO productsDao;
 	
+
 	@Autowired
 	private TransactionDAO transactionDao;
 	@Autowired
@@ -55,6 +56,7 @@ public class DataLoader {
 				"http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg",
 				"http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg",
 				"http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg"));
+
 
 		productsDao.save(new Products(0, "Don", 23.0, "2014-10-31", "Plat", 23, 9.0f, "PS4",
 				"http://www.retrogameguide.com/images/box_art_and_carts/SNES-Donkey-Kong-Country-cart.jpg",

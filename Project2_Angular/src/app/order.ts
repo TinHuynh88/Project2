@@ -3,7 +3,8 @@ import { Product } from './product';
 
 export class Order {
 
-  orderId:number;
+  orderId: number;
+
   transaction: Transaction;
   product: Product;
   quantitySold: number;
