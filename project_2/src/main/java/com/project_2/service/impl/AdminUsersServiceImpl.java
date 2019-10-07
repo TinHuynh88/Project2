@@ -57,5 +57,11 @@ public class AdminUsersServiceImpl implements AdminUsersService {
 		return  userDao.save(user);
 	}
 
+	@Override
+	public List<User> generalSearchUser(String search) {
+		// TODO Auto-generated method stub
+		return userDao.generalSearchUser("%"+search.toLowerCase()+"%");
+	}
+
 
 }

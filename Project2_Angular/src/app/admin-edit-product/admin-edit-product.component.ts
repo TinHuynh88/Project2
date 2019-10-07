@@ -17,8 +17,11 @@ export class AdminEditProductComponent implements OnInit {
   private sub: any;
   isUpdate: boolean;
   session: string[];
+ // releastDate:Date;
   constructor(private project2Service: Project2Service, private router: Router, private route: ActivatedRoute, private location: Location) {
     this.product = new Product();
+    this.isUpdate = true;
+  //  this.releastDate=new Date();
    }
 
   ngOnInit() {
@@ -36,6 +39,7 @@ export class AdminEditProductComponent implements OnInit {
           this.productList.forEach(i => {
             if((i.productId+"")==this.id){
               this.product=i;
+         //     this.releastDate = new Date(this.product.releaseDate);
               console.log("This product: "+this.product.productId);
             }
           });
@@ -44,20 +48,20 @@ export class AdminEditProductComponent implements OnInit {
     });
   }
 
-  updateUser() {
+  updateProduct() {
 
-    //if (this.isUpdate) {
-    //   console.log("ddddddddddd"+this.user.userName);
-    //   console.log("dddd"+this.user.password);
-    //   this.project2Service.updateUser(this.user).subscribe(data=>{
-    //     this.user=data;
-    //     alert("Update User[ "+this.user.userName+" ] succeeded.");
-    //   });
-    //   console.log("qqqq"+this.user.password);
-    // }
-    // else{
-    //   console.log("aaaaaaaaaaaaaaaaaaaaa");
-    // }
+    if (this.isUpdate) {
+      console.log("ddddddddddd"+this.product.productName);
+      console.log("dddd"+this.product.releaseDate);
+      this.project2Service.updateProduct(this.product).subscribe(data=>{
+        this.product=data;
+        alert("Update Product [ "+this.product.productName+" ] succeeded.");
+      });
+      console.log("qqqq"+this.product.productId);
+    }
+    else{
+      console.log("aaaaaaaaaaaaaaaaaaaaa");
+    }
   }
 
   goBack() {
@@ -65,7 +69,5 @@ export class AdminEditProductComponent implements OnInit {
     this.location.back();
     this.isUpdate = false;
   }
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+  
 }

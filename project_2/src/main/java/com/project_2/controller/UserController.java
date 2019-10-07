@@ -146,8 +146,9 @@ public class UserController {
     };
     
     @GetMapping("/ordersByTransactionId/{id}")
-    public List<Order> getOrdersByTransactionId(@PathVariable long transactionId) {
-        return orderService.getOrdersByTransactionId(transactionId);
+    public List<Order> getOrdersByTransactionId(@PathVariable String id) {
+    	System.out.println("TTTTDAO = "+id);
+        return orderService.getOrdersByTransactionId(Long.parseLong(id));
     };
     @GetMapping("/ordersByProductId/{id}")
     public List<Order> getOrdersByProductId(@PathVariable long productId) {

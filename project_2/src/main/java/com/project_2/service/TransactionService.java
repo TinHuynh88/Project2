@@ -10,5 +10,6 @@ public interface TransactionService {
 
 	public Transaction createTransaction(Transaction transaction);
 	public List<Transaction> getAllTransactions();
+	public List<Transaction> generalSearchTransaction(String search);
 	
 }

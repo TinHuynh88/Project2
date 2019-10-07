@@ -36,6 +36,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
 
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
+import { AdminProductsByTransIdComponent } from './admin-products-by-trans-id/admin-products-by-trans-id.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -65,7 +67,9 @@ import { AdminEditProductComponent } from './admin-edit-product/admin-edit-produ
     AdminSearchTransactionsComponent,
     CreateProductComponent,
     AdminEditUserComponent,
-    AdminEditProductComponent
+    AdminEditProductComponent,
+    AdminProductsByTransIdComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

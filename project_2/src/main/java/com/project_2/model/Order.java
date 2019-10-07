@@ -26,7 +26,7 @@ public class Order implements Serializable{
 	private Transaction transaction;
 	
 	@ManyToOne
-	private Products products;
+	private Products product;
 	 
 	private int quantitySold;
 	
@@ -42,17 +42,17 @@ public class Order implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", transaction=" + transaction + ", products=" + products
+		return "Order [orderId=" + orderId + ", transaction=" + transaction + ", product=" + product
 				+ ", quantitySold=" + quantitySold + ", totalUnitPrice=" + totalUnitPrice + "]";
 	}
 
 
 
-	public Order(long orderId, Transaction transaction, Products products, int quantitySold, double totalUnitPrice) {
+	public Order(long orderId, Transaction transaction, Products product, int quantitySold, double totalUnitPrice) {
 		super();
 		this.orderId = orderId;
 		this.transaction = transaction;
-		this.products = products;
+		this.product = product;
 		this.quantitySold = quantitySold;
 		this.totalUnitPrice = totalUnitPrice;
 	}
@@ -83,14 +83,14 @@ public class Order implements Serializable{
 
 
 
-	public Products getProducts() {
-		return products;
+	public Products getProduct() {
+		return product;
 	}
 
 
 
-	public void setProducts(Products products) {
-		this.products = products;
+	public void setProduct(Products product) {
+		this.product = product;
 	}
 
 

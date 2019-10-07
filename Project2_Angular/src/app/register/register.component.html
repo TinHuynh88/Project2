@@ -16,89 +16,117 @@
                     <h3 class="register-heading">Register</h3>
                     <div class="row register-form">
                         <div class="col-md-6">
-                            <form [formGroup]="registerForm" (ngSubmit)="userLogin()" #userForm="ngForm">
+                            <form [formGroup]="registerForm" (ngSubmit)="userRegister()" #userForm="ngForm">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" formControlName="firstname" />
+                                    <input type="text" class="form-control" placeholder="First Name *"
+                                        formControlName="firstname"  name="firstname" [(ngModel)]="user.firstName"/>
                                 </div>
-                                <div *ngIf="(firstname.touched || firstname.dirty) && firstname.invalid" style="color:red"> Firstname is required </div>
-                                
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" formControlName="lastname" />
-                                </div>
-                                <div *ngIf="(lastname.touched || lastname.dirty) && lastname.invalid" style="color:red" > Lastname is required </div>
-                                
-                                <div class="form-group">
-                                    <input type="text" name="phone"
-                                        class="form-control" placeholder="Your Phone *" formControlName="phone" />
-                                </div>
-                                <div *ngIf="(phone.touched || phone.dirty) && phone.invalid" style="color:red"> Phone number is required </div>
-                                
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Street Address *" formControlName="stadd" />
-                                </div>
-                                <div *ngIf="(stadd.touched || stadd.dirty) && stadd.invalid" style="color:red"> Street address is required </div>
-                                
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="City *" formControlName="city" />
-                                </div>
-                                <div *ngIf="(city.touched || city.dirty) && city.invalid" style="color:red"> City is required </div>
+                                <div *ngIf="(firstname.touched || firstname.dirty) && firstname.invalid"
+                                    style="color:red"> Firstname is required </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="State *" formControlName="state" />
+                                    <input type="text" class="form-control" placeholder="Last Name *"
+                                        formControlName="lastname" name="lastname" [(ngModel)]="user.lastName"/>
                                 </div>
-                                <div *ngIf="(state.touched || state.dirty) && state.invalid" style="color:red"> State is required </div>
-                                
+                                <div *ngIf="(lastname.touched || lastname.dirty) && lastname.invalid" style="color:red">
+                                    Lastname is required </div>
+
+                                <div class="form-group">
+                                    <input type="text" name="phone" class="form-control" placeholder="Your Phone *"
+                                        formControlName="phone" name="phone" [(ngModel)]="user.phone"/>
+                                </div>
+                                <div *ngIf="(phone.touched || phone.dirty) && phone.invalid" style="color:red"> Phone
+                                    number is required </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Street Address *"
+                                        formControlName="stadd" name="street" [(ngModel)]="streetInput" />
+                                </div>
+                                <div *ngIf="(stadd.touched || stadd.dirty) && stadd.invalid" style="color:red"> Street
+                                    address is required </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="City *"
+                                        formControlName="city" />
+                                </div>
+                                <div *ngIf="(city.touched || city.dirty) && city.invalid" style="color:red"> City is
+                                    required </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="State *"
+                                        formControlName="state" />
+                                </div>
+                                <div *ngIf="(state.touched || state.dirty) && state.invalid" style="color:red"> State is
+                                    required </div>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Zip-code *"
-                                        formControlName="zipcode" name= "zipcode" [(ngModel)]="user.zipcode"/>
+                                        formControlName="zipcode"  />
                                 </div>
-                                <div *ngIf="(zipcode.touched || zipcode.dirty) && zipcode.invalid" style="color:red"> Zipcode is required and 5 digits only
+                                <div *ngIf="(zipcode.touched || zipcode.dirty) && zipcode.invalid" style="color:red">
+                                    Zipcode is required and 5 digits only
                                 </div>
 
                             </form>
                         </div>
                         <div class="col-md-6">
                             <form [formGroup]="registerForm" (ngSubmit)="userRegister()" #userForm="ngForm">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Username *" formControlName="username" name= "userName" [(ngModel)]="user.userName" />
-                            </div>
-                            <div *ngIf="(username.touched || username.dirty) && username.invalid" style="color:red"> Username is required </div>
-                            
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email *" formControlName="email" name= "email" [(ngModel)]="user.email"/>
-                            </div>
-                            <div *ngIf="(email.touched || email.dirty) && email.invalid" style="color:red"> email is required </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Username *"
+                                        formControlName="username" name="userName" [(ngModel)]="user.userName" />
+                                </div>
+                                <div *ngIf="(username.touched || username.dirty) && username.invalid" style="color:red">
+                                    Username is required </div>
 
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password *" formControlName="password" name= "password" [(ngModel)]="user.password"/>
-                            </div>
-                            <div *ngIf="(password.touched || password.dirty) && password.invalid" style="color:red"> Password is required </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *"
+                                        formControlName="email" name="email" [(ngModel)]="user.email" />
+                                </div>
+                                <div *ngIf="(email.touched || email.dirty) && email.invalid" style="color:red"> email is
+                                    required </div>
 
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password *" formControlName="confirmPassword" name= "password" [(ngModel)]="user.password"/>
-                            </div>
-                            <div *ngIf="(confirmPassword.touched || confirmPassword.dirty) && confirmPassword.invalid" style="color:red"> Confirm password is required </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *"
+                                        formControlName="password" name="password" [(ngModel)]="user.password" />
+                                </div>
+                                <div *ngIf="(password.touched || password.dirty) && password.invalid" style="color:red">
+                                    Password is required </div>
 
-                            <div class="form-group">
-                                <select class="form-control" formControlName="securityQuestion" name= "securityQuestion" [(ngModel)]="user.securityQuestion">
-                                    <option class="hidden" selected disabled >Please select your Sequrity Question
-                                    </option>
-                                    <option>What is your Birthdate?</option>
-                                    <option>What is Your old Phone Number</option>
-                                    <option>What is your Pet Name?</option>
-                                </select>
-                            </div>
-                            <div *ngIf="(securityQuestion.touched || securityQuestion.dirty) && securityQuestion.invalid" style="color:red">  Please select a security question </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter Your Answer *" formControlName="securityAnswer" name= "securityAnswer" [(ngModel)]="user.securityAnswer"/>
-                            </div>
-                            <div *ngIf="(securityAnswer.touched || securityAnswer.dirty) && securityAnswer.invalid" style="color:red"> Answer is required </div>
-                        </form>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Confirm Password *"
+                                        formControlName="confirmPassword"  />
+                                </div>
+                                <div *ngIf="(confirmPassword.touched || confirmPassword.dirty) && confirmPassword.invalid"
+                                    style="color:red"> Confirm password is required </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" formControlName="securityQuestion"
+                                        name="securityQuestion" [(ngModel)]="user.securityQuestion">
+                                        <option class="hidden" selected disabled>Please select your Sequrity Question
+                                        </option>
+                                        <option>What is your Birthdate?</option>
+                                        <option>What is Your old Phone Number?</option>
+                                        <option>What is your Pet Name?</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="(securityQuestion.touched || securityQuestion.dirty) && securityQuestion.invalid"
+                                    style="color:red"> Please select a security question </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Your Answer *"
+                                        formControlName="securityAnswer" name="securityAnswer"
+                                        [(ngModel)]="user.securityAnswer" />
+                                </div>
+                                <div *ngIf="(securityAnswer.touched || securityAnswer.dirty) && securityAnswer.invalid"
+                                    style="color:red"> Answer is required </div>
+                            </form>
                         </div>
-                        
+
                         <div style="color:red">{{errMessage}}</div>
+
                         <div class="row col-md-8" id="cnt">
-                            <input type="submit" class="btnRegister" value="Register" />
+                            <form [formGroup]="registerForm" (ngSubmit)="userRegister()" #userForm="ngForm">
+                                <input type="submit" class="btnRegister" value="Register" />
+                            </form>
                         </div>
                     </div>
                 </div>
