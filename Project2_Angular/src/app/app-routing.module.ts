@@ -25,6 +25,9 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
 import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AdminProductsByTransIdComponent } from './admin-products-by-trans-id/admin-products-by-trans-id.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 import { ProductCardComponent } from './product-card/product-card.component';
 
 
@@ -49,21 +52,20 @@ const routes: Routes = [
       { path: 'userAccount', component: UserAccountComponent },
       { path: 'userOrders', component: UserOrdersComponent },
       { path: 'createProduct', component: CreateProductComponent },
-      { path: 'payment', component: PaymentComponent }
+      { path: 'payment', component: PaymentComponent },
+       {path:'resetPassword',component:ResetPasswordComponent}
     ]
   },
-  { path: 'adminLogin', component: AdminLoginComponent },
-  {
-    path: 'adminHome', component: AdminHomeComponent, children: [
-      { path: 'adminSearchUsers', component: AdminSearchUsersComponent },
-      { path: 'adminCreateProduct', component: AdminCreateProductComponent },
-      { path: 'adminSearchProducts', component: AdminSearchProductsComponent },
-      { path: 'adminSearchTransactions', component: AdminSearchTransactionsComponent },
-      { path: 'adminEditUser', component: AdminEditUserComponent },
-      { path: 'adminEditProduct', component: AdminEditProductComponent }
-    ]
-  }
-
+  {path:'adminLogin', component:AdminLoginComponent},
+    {path:'adminHome',component:AdminHomeComponent, children:[
+      {path:'adminSearchUsers',component:AdminSearchUsersComponent},
+      {path:'adminCreateProduct',component:AdminCreateProductComponent},  
+    {path:'adminSearchProducts',component:AdminSearchProductsComponent},
+    {path:'adminSearchTransactions',component:AdminSearchTransactionsComponent},
+    {path:'adminEditUser',component:AdminEditUserComponent},
+    {path:'adminEditProduct',component:AdminEditProductComponent},
+    {path:'adminProductByTransId', component:AdminProductsByTransIdComponent}
+    ]}
 ];
 
 @NgModule({

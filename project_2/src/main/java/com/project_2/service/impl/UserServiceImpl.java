@@ -42,16 +42,19 @@ public class UserServiceImpl implements UserService {
 		return user1;
 	}
 
-	@Override
-	public User forgotPassword(User user) {
-		
-		User user1 = userDao.userLogin(user.getUserName(), user.getPassword());
-		if(user1 != null && user1.getRole().equals("User") && user1.getSecurityQuestion().equals("question") && user1.getSecurityAnswer().equals("answer")) {
-			user1.setPassword(encryptPassword(user.getPassword()));
-		}
-		return null;
-	}
+
 	
+	@Override
+    public User forgotPassword(User user) {
+        
+        User user1 = userDao.userLogin(user.getUserName(), user.getPassword());
+        if(user1 != null && user1.getRole().equals("User") && user1.getSecurityQuestion().equals("question") && user1.getSecurityAnswer().equals("answer")) {
+            user1.setPassword(encryptPassword(user.getPassword()));
+        }else {
+            return null;
+        }
+        return user1;
+    }
 	/////////////////////////////////////////////////////
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

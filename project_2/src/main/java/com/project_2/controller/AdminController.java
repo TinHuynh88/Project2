@@ -25,6 +25,7 @@ import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
 import com.project_2.service.ProductsService;
+import com.project_2.service.TransactionService;
 
 
 @CrossOrigin
@@ -34,6 +35,8 @@ public class AdminController {
 	private AdminUsersService service;
 	@Autowired
 	private ProductsService productService;
+	@Autowired
+	private TransactionService transService;
 
 	@Autowired
 	private HttpServletRequest request;
@@ -127,11 +130,48 @@ public class AdminController {
 		return user;
 	}
 	
+	@PutMapping("/adminUpdateProduct")
+	public Products updatetProductById(@RequestBody Products product) {
+		System.out.println("update product: "+product);
+		try {
+			product = productService.updateProduct(product);
+		}catch(Exception e) {
+			System.out.println("Update error:"+e.getMessage());
+			product=null;
+		}
+		return product;
+	}
+	
 	@GetMapping("/adminLogout")
 	public void adminLogout() {
 		System.out.println("Admin Logout");
 		this.httpSession.invalidate();
 	}
+	
+	@GetMapping("/searchUsers/{search}")
+	public List<User> searchUsers(@PathVariable String search) {
+		System.out.println("General__Search: "+search);
+		return service.generalSearchUser(search);
+	}
+	
+	@GetMapping("/searchTransactions/{search}")
+	public List<Transaction> searchTransactions(@PathVariable String search) {
+		System.out.println("General__Search: "+search);
+		return transService.generalSearchTransaction(search);
+	}
+	
+	@PutMapping("/adminUpdatePassword")
+    public User updatetUserByPassword(@RequestBody User user) {
+        System.out.println("update: "+user);
+        try {
+            user.setPassword(encryptPassword(user.getPassword()));
+            user=service.updateUser(user);
+        }catch(Exception e) {
+            System.out.println("Update error:"+e.getMessage());
+            user=null;
+        }
+        return user;
+    }
 	
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

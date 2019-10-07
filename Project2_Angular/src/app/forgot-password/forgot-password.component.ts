@@ -15,6 +15,7 @@ export class ForgotPasswordComponent implements OnInit {
   user: User;
 
   errMessage: string;
+  listUser: User[];
 
   constructor(private formBuilder: FormBuilder, private project2Service: Project2Service, private router: Router) {
 
@@ -23,46 +24,49 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-      username: new FormControl('', [Validators.required]),
-      securityQuesion: new FormControl('', [Validators.required]),
-      securityAnswer: new FormControl('', [Validators.required])
-    });
+    // this.form = this.formBuilder.group({
+    //   username: new FormControl('', [Validators.required]),
+    //   securityQuesion: new FormControl('', [Validators.required]),
+    //   securityAnswer: new FormControl('', [Validators.required])
+    // });
 
 
   }
 
-  get username() {
-    return this.form.get('username');
-  }
+  // get username() {
+  //   return this.form.get('username');
+  // }
 
-  get securityQuesion() {
-    return this.form.get('securityQuesion');
-  }
+  // get securityQuesion() {
+  //   return this.form.get('securityQuesion');
+  // }
 
-  get securityAnswer() {
-    return this.form.get('securityAnswer');
-  }
+  // get securityAnswer() {
+  //   return this.form.get('securityAnswer');
+  // }
 
-  userLogin() {
-    if (this.user.userName == undefined || this.user.password == undefined) {
-      this.errMessage = "Please enter username or password";
+  forgotPassword() {
+    if (this.user.email == undefined || this.user.securityAnswer == undefined 
+      || this.user.securityQuestion == undefined) {
+      this.errMessage = "Please enter all fields";
       return;
     }
-    console.log(this.user.password + " test ter- " + this.user.userName);
-    this.project2Service.userLogin(this.user).subscribe(data => {
-      this.user = data;
-
-      if (this.user != null) {
-
-        console.log("test after- " + this.user.userName);
-
-        this.router.navigate(['/home']);
-      } else {
-
-        this.user = new User();
-        this.errMessage = "Username and/or password is not entered.";
-      }
+    console.log(this.user.email + " test ter- " + this.user.securityQuestion);
+    this.project2Service.getAllUsers().subscribe(data => {
+      this.listUser = data;
+      this.listUser.forEach(u => {
+        if (u.securityQuestion == this.user.securityQuestion
+          && u.securityAnswer.toLowerCase() == this.user.securityAnswer.toLocaleLowerCase()
+          && u.email.toLocaleLowerCase() == this.user.email.toLocaleLowerCase()) {
+          this.router.navigate(['home/resetPassword', { id: u.userName }]);
+          return;
+        } 
+         
+        
+      });
+      this.errMessage = "Your information is not correct. Please retry...";
     });
   }
+  
 }
+

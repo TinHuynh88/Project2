@@ -6,7 +6,6 @@ import { Product } from './product';
 import { Transaction } from './transaction';
 import { Order } from './order';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +24,19 @@ export class Project2Service {
   private generalSearchProductUrl:string;
   private getUserSessionUrl: string;
   private userLogOutUrl: string;
+
   private createTransactionUrl: string;
   private createOrderUrl: string;
+
+  private updateProductUrl: string;
+  private generalSearchUserUrl:string;
+  private getAllTransactionUrl:string;
+  private getOrderByTranIDUrl:string;
+  private generalSearchTransactionUrl:string;
+  private userRegisterUrl: string;
+  private updatePasswordUrl:string;
+  
+
 
   constructor(private http:HttpClient) { 
     this.adminLoginUrl="http://localhost:3000/adminLogin";
@@ -43,18 +53,27 @@ export class Project2Service {
     this.generalSearchProductUrl="http://localhost:3000/searchProducts/";
     this.getUserSessionUrl="http://localhost:3000/getUserSession";
     this.userLogOutUrl= "http://localhost:3000/userLogout";
+
     this.createTransactionUrl="http://localhost:3000/createTransaction";
     this.createOrderUrl="http://localhost:3000/createOrder";
+
+    this.updateProductUrl = "http://localhost:3000/adminUpdateProduct";
+    this.generalSearchUserUrl="http://localhost:3000/searchUsers/";
+    this.getAllTransactionUrl="http://localhost:3000/transactions";
+    this.getOrderByTranIDUrl="http://localhost:3000/ordersByTransactionId/";
+    this.generalSearchTransactionUrl="http://localhost:3000/searchTransactions/";
+    this.userRegisterUrl="http://localhost:3000/userRegister";
+    this.updatePasswordUrl="http://localhost:3000/adminUpdatePassword";
+
   }
 
-  public createTransaction(transaction) {
+    public createTransaction(transaction) {
     return this.http.post<Transaction>(this.createTransactionUrl, transaction);
   }
 
   public createOrder(order) {
     return this.http.post<Order>(this.createOrderUrl, order);
-  }
-
+    
   public adminLogin(user: User){
     return this.http.post<User>(this.adminLoginUrl, user);
   }
@@ -103,5 +122,36 @@ export class Project2Service {
 
   public userLogout(){
     return this.http.get(this.userLogOutUrl);
+  }
+
+  public updateProduct(product:Product){
+    console.log("product: "+ product.productId);
+    return this.http.put<Product>(this.updateProductUrl, product);
+  }
+
+  public generalSearchUser(search: string){
+    console.log("search 3: "+this.generalSearchUserUrl+search);
+    return this.http.get<User[]>(this.generalSearchUserUrl+search);
+  }
+
+  public getAllTransactions(){
+    return this.http.get<Transaction[]>(this.getAllTransactionUrl);
+  }
+
+  public getOrderByTransId(id:string){
+    return this.http.get<Order[]>(this.getOrderByTranIDUrl+id);
+  }
+
+  public generalSearchTransaction(search: string){
+    return this.http.get<Transaction[]>(this.generalSearchTransactionUrl+search);
+  }
+
+  public userRegister(user: User){
+    return this.http.post<User>(this.userRegisterUrl, user);
+  }
+  
+  public updatePassword(user:User){
+    console.log("user: "+ user.firstName);
+    return this.http.put<User>(this.updatePasswordUrl,user);
   }
 }

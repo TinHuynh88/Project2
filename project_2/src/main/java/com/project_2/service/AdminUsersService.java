@@ -16,4 +16,5 @@ public interface AdminUsersService {
 	public User adminLogin(User user);
 	public void adminUserDelete(String userName);
 	public User updateUser(User user);
+	public List<User> generalSearchUser(String search);
 }
