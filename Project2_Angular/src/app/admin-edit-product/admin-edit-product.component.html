@@ -1,0 +1,106 @@
+<br /><br /><br />
+<table>
+  <tr>
+    <th width="20%"></th>
+    <th>
+      <div class="animated animatedFadeInUp fadeInUp" data-wow-delay=".3s">
+
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+          <form (ngSubmit)="updateProduct()" #userForm="ngForm">
+            <div class="col-md-12 register-right">
+
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h2><strong>Edit Product: <u>{{ product.productName }}</u></strong> </h2>
+                  <br /><br />
+                  <div class="row register-form" align-items="center">
+
+                    <div class="col-md-6 ">
+                      <div class="form-group">
+                        <h5 class="col-md-12 font-weight-bold text-left">Product ID: </h5>
+                        <div class="form-group">
+                          <input type="text" name="productId" name="productId" class="input100"
+                            value="{{product.productId}}" disabled />
+                        </div>
+                        <h5 class="col-md-12 font-weight-bold text-left">Product Name: </h5>
+                        <input type="text" name="productName" class="input100" placeholder="Product Name *"
+                          [(ngModel)]="product.productName" value="{{product.productName}}" />
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Product Price: </h5>
+                      <div class="form-group">
+                        <input type="text" name="productPrice" class="input100" placeholder="Product Price *"
+                          [(ngModel)]="product.productPrice" value="{{product.productPrice}}" />
+                      </div>
+
+                      <h5 class="col-md-12 font-weight-bold text-left">Category: </h5>
+                      <div class="form-group">
+                        <input type="text" name="category" class="input100" placeholder="Category *"
+                          [(ngModel)]="product.category" value="{{product.category}}" />
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Release Date: </h5>
+                      <div class="form-group">
+                        <input type="date" name="releaseDate" [(ngModel)]="product.releaseDate"
+                          value="{{product.releaseDate}}" />
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="col-md-12 font-weight-bold text-left">System: </h5>
+                      <div class="form-group">
+                        <input type="text" name="system" class="input100" placeholder="System *"
+                          value="{{product.system}}" [(ngModel)]="product.system" />
+
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Quantity: </h5>
+                      <div class="form-group">
+                        <input type="number" name="quantity" class="input100" placeholder="Quantity *"
+                          value="{{product.quantity}}" [(ngModel)]="product.quantity" />
+                      </div>
+
+                      <h5 class="col-md-12 font-weight-bold text-left">Rating: </h5>
+                      <div class="form-group">
+                        <input type="number" name="rating" class="input100" placeholder="Rating *"
+                          value="{{product.rating}}" [(ngModel)]="product.rating" />
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Pictures 1: </h5>
+                      <div class="form-group">
+                        <input type="text" name="picture1" class="input100" placeholder="Picture1 *" value="{{product.picture1}}"
+                          [(ngModel)]="product.picture1"/>
+
+                      </div>
+                      <h5 class="col-md-12 font-weight-bold text-left">Pictures 2: </h5>
+                      <div class="form-group">
+                          <input type="text" name="picture2" class="input100" placeholder="Picture2 *" value="{{product.picture2}}"
+                            [(ngModel)]="product.picture2"/>
+  
+                        </div>
+                      <div></div>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div>
+                  <br />
+                  <table>
+                    <tr>
+                      <th width="10%"></th>
+                      <th><button class="login101-form-btn" (click)="goBack()">Back</button></th>
+                      <th width="50%"></th>
+                      <th><button class="login100-form-btn">Update</button></th>
+                      <th width="10%"></th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+
+            </div>
+          </form>
+        </div>
+        <!-- </div> -->
+      </div>
+    </th>
+    <th width="20%"></th>
+  </tr>
+</table>

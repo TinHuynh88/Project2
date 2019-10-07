@@ -1,0 +1,47 @@
+<br>
+<br>
+<section class="moduler wrapper_404">
+  <div class="container">
+    <div class="row">
+        
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="footer copyright">
+            <h2><strong>Order Products Details</strong></h2><hr>
+          <table cellpadding="0" id="productTable" width=100%>
+            
+            <tr>
+                 
+                <th scope="col">Product Id</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Release Date</th>              
+                <th scope="col">Category</th>
+                <th scope="col">System</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Quantity Sold</th>
+                <th scope="col">Total per Product</th>
+             
+              </tr>
+              <tr *ngFor="let o of orderList">
+                  <td (click)="goProductList(o)" style="cursor: pointer"><u>{{o.product.productId}}</u></td>
+                  <td>{{o.product.productName}}</td>
+                  <td>{{o.product.Price}}</td>
+                  <td>{{o.product.releaseDate}}</td>
+                  <td>{{o.product.category}}</td>  
+                  <td>{{o.product.system}}</td>  
+                  <td>{{o.product.rating}}</td> 
+                  <td>{{o.quantitySold}}</td>    
+                  <td>{{o.totalUnitPrice}}</td>        
+              </tr>
+          </table>
+            <hr>
+            <button class="login101-form-btn" (click)="goBack()">Back</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

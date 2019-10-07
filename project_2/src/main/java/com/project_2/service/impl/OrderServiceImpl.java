@@ -1,5 +1,6 @@
 package com.project_2.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,17 +36,21 @@ public class OrderServiceImpl implements OrderService{
     }
     @Override
     public List<Order> getOrdersByTransactionId(long transactionId) {
-        orderDao.findAll().forEach( orders -> {
-            if ( orders.getTransaction().getTransactionId() == transactionId) {
-                this.orders.add(orders);
+    	System.out.println("TTTT = "+transactionId);
+    	List<Order> orderList = new ArrayList<Order>();
+        orderDao.findAll().forEach( order -> {
+        	System.out.println(order.getTransaction().getTransactionId());
+        	
+            if ( order.getTransaction().getTransactionId() == transactionId) {
+            	orderList.add(order);
             }
         });
-        return orders;
+        return orderList;
     }
     @Override
     public List<Order> getOrdersByProductId(long productId) {
         orderDao.findAll().forEach( orders -> {
-            if ( orders.getProducts().getProductId() == productId ) {
+            if ( orders.getProduct().getProductId() == productId ) {
                 this.orders.add(orders);
             }
         });

@@ -7,4 +7,5 @@ public interface UserService {
 	
 	public User userLogin(User user);
 	public User userRegister(User user);
+	public User forgotPassword(User user);
 }

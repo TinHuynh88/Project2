@@ -1,0 +1,13 @@
+.cartStyle {
+  margin: 2rem;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.lineItem {
+  border: .1rem solid black;
+  margin: .5rem;
+  padding: 1rem;
+  justify-items: left;
+  background-color: #00c6ff;
+}

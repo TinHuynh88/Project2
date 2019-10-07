@@ -1,0 +1,71 @@
+<h2>Payment Info</h2>
+<form [formGroup]="paymentForm">
+<div>
+  <div class="form-group col-sm-12 paymentText">
+      <label for="customerName" class="control-label col-sm-3 paymentText">Customer's Name</label>
+      <input
+      formControlName="customerName"
+      name="customerName"
+      class="form-control col-sm-6 paymentText"
+      type="text"
+      placeholder="Customer Name"/>
+      <div *ngIf="customerName.touched && customerName.errors.required" class="alert alert-danger col-sm-3">
+          Customer Name required
+      </div>
+    </div>
+  <div class="form-group col-sm-12 paymentText">
+      <label for="paymentType" class="col-sm-3 control-label paymentText">Payment Type</label>
+      <select formControlName="paymentType" name="paymentType" placeholder="Payment Type" >
+        <option value="debit">Debit Card</option>
+        <option value="credit">Credit Card</option>
+      </select>
+      <div *ngIf="paymentType.touched && paymentType.errors.required" class="alert alert-danger col-sm-3">
+          Payment Type required
+      </div>
+    </div>
+  <div class="form-group col-sm-12 paymentText">
+      <label for="cardNumber" class="col-sm-3 control-label paymentText">Card Number</label>
+      <input
+      formControlName="cardNumber"
+      name="cardNumber"
+      class="form-control col-sm-6 paymentText"
+      type="text"
+      placeholder="Card Number"/>        
+        <div *ngIf="cardNumber.errors.required && cardNumber.touched" class="alert alert-danger col-sm-3"> 
+          Card Number required. 
+         </div>
+         <div *ngIf="cardNumber.errors.minlength || cardNumber.errors.maxlength" class="alert alert-danger col-sm-3"> 
+          Card Number must be 16 digits long.
+         </div>		 
+         <div *ngIf="cardNumber.errors.pattern && cardNumber.errors.invalid" class="alert alert-danger col-sm-3"> 
+            Card Number must be of digits.
+           </div>		 
+    </div>
+  <div class="form-group col-sm-12 paymentText">
+      <label for="cvv" class="col-sm-3 control-label paymentText">CVV</label>
+      <input
+      formControlName="securityCode"
+      name="securityCode"
+      class="form-control col-sm-3 paymentText"
+      type="text"
+      placeholder="CVV"/>
+        <div *ngIf="securityCode.errors.required && securityCode.touched" class="alert alert-danger col-sm-3"> Security code required</div>
+        <div *ngIf="securityCode.errors.minlength || securityCode.errors.maxlength" class="alert alert-danger col-sm-3">Security code must be 3 digits</div>
+        <div *ngIf="securityCode.errors.pattern && securityCode.errors.invalid" class="alert alert-danger col-sm-3">
+          Security code must be of digits</div>
+    </div>
+    <div class="form-group col-sm-12 paymentText">
+        <label for="totalPrice" class="col-sm-3 control-label paymentText">Total</label>
+        <input
+        formControlName="totalPrice"
+        name="totalPrice"
+        class="form-control col-sm-3 paymentText"
+        type="number"
+        placeholder="Total"/>
+        <div *ngIf="totalPrice.touched && totalPrice.errors.required" class="alert alert-danger col-sm-3">
+            Total Price required
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+</div>
+</form>

@@ -3,9 +3,11 @@ import { Product } from './product';
 
 export class Order {
 
-  private transaction: Transaction;
-  private product: Product;
-  private quantitySold: number;
-  private totalUnitPrice: number;
+  orderId: number;
+
+  transaction: Transaction;
+  product: Product;
+  quantitySold: number;
+  totalUnitPrice: number;
 
 }

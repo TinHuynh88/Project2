@@ -9,14 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-create-product.component.css']
 })
 export class AdminCreateProductComponent {
-  product:Product;
-  
-  constructor(private productService:ProductsService, private router:Router) {
-    //this.product=new Products();
+  product: Product;
+
+  constructor(private productsService: ProductsService, private router: Router ) {
+    this.product = new Product();
   }
+
+  ngOnInit() {
+  }
+  
   createProduct() {
-    console.log(this.product);
-    // this.productService.createProduct(this.product).subscribe(data=>this.gotoProductList());
+    this.productsService.createProduct(this.product).subscribe(data => this.gotoProductsPage());
+  }
+
+  gotoProductsPage() {
+
+    this.router.navigate(['/adminHome']);
+
   }
   
   gotoProductList() {

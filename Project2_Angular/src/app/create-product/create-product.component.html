@@ -1,11 +1,11 @@
-<div>
+<div class="container createProdStyle" >
 
   <form (ngSubmit)="createProduct()" #createProductForm="ngForm">
 
-    <h2>Product Id: {{ product.productId }} </h2>
-    <input type="text" name="productId" value="0" [(ngModel)]="product.productId">
     <h2>Product Name: {{ product.productName }} </h2>
     <input type="text" name="productName" value="productName" [(ngModel)]="product.productName">
+    <h2>Product System: {{ product.system }} </h2>
+    <input type="text" name="system" value="system" [(ngModel)]="product.system">
     <h2>Product Price: {{ product.productPrice }} </h2>
     <input type="text" name="productPrice" value="productPrice" [(ngModel)]="product.productPrice">
     <h2>Product Release Date: {{ product.releaseDate }} </h2>
@@ -16,8 +16,15 @@
     <input type="text" name="quantity" value="quantity" [(ngModel)]="product.quantity">
     <h2>Product Rating: {{ product.rating }} </h2>
     <input type="text" name="rating" value="rating" [(ngModel)]="product.rating">
-    <h2>Product Pictures: {{ product.pictures }} </h2>
-
+    <h2>Product Picture 1: {{ product.picture1 }} </h2>
+    <input type="text" name="picture1" value="picture1" [(ngModel)]="product.picture1">
+    <h2>Product Picture 2: {{ product.picture2 }} </h2>
+    <input type="text" name="picture2" value="picture2" [(ngModel)]="product.picture2">
+    <h2>Product Picture 3: {{ product.picture3 }} </h2>
+    <input type="text" name="picture3" value="picture3" [(ngModel)]="product.picture3">
+    <br>
+    <br>
+    <br>
     <input type="submit" value="Create Product" />
   </form>
   

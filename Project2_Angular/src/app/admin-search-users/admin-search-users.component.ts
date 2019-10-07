@@ -16,8 +16,9 @@ export class AdminSearchUsersComponent implements OnInit {
   // user:User;
   session: string[];
   userList: User[];
+  searchValue:string;
   constructor(private project2Service: Project2Service, private router: Router) {
-
+    this.searchValue="";
     //  
   }
 
@@ -47,7 +48,21 @@ export class AdminSearchUsersComponent implements OnInit {
       }));
     }
   }
-
+  searchUser(){
+    console.log("search 0: "+this.searchValue);
+    if(this.searchValue==""){
+      this.project2Service.getAllUsers().subscribe(data => {
+        this.userList = data; });
+    }else{
+    this.project2Service.generalSearchUser(this.searchValue).subscribe(data => {
+      console.log("search 1: "+this.searchValue);
+      this.userList = data;
+      if(this.userList==null){
+        this.userList= [];
+      }
+    });
+  }
+  }
   
 
 }

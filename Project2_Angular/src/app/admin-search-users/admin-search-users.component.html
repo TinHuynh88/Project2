@@ -1,22 +1,22 @@
 <br>
-<br>
-<br>
 <section class="moduler wrapper_404">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="text-center">
-          <input type="text" class="form-control" id="search" name="search"
-            placeholder="Enter user Infomation like username, email, name, address, phone.. to search">
-          <hr>
-          <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
-          <button type="button" class="btn-info" name="userSearch"  id="showTable" >
-        <span class="glyphicon glyphicon-search"></span> Search
-      </button>
-     
-          <hr>
-        </div>
+        <h2><strong>Search User</strong></h2><hr><br>
+        <form (ngSubmit)="searchUser()" #userForm="ngForm">
+          <div class="text-center">
+            <input type="text" class="form-control" id="search" name="search" [(ngModel)]="searchValue"
+              placeholder="Enter user Infomation like username, email, name, address, phone.. to search">
+            <br>
+            <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
+            <button  class="btn-info" name="userSearch" id="showTable">
+              <span class="glyphicon glyphicon-search"></span> Search
+            </button>
 
+            <hr>
+          </div>
+        </form>
       </div>
     </div>
     <div class="row">
@@ -34,14 +34,14 @@
               <th scope="col">Delete</th>
             </tr>
             <tr *ngFor="let u of userList">
-                <td (click)="goEditUser(u)" style= "cursor: pointer"><u >{{u.userName}}</u></td>
-                <td>{{u.email}}</td>
-                <td>{{u.firstName}}</td>
-                <td>{{u.lastName}}</td>
-                <td>{{u.address}}</td>
-                <td>{{u.securityQuestion}}</td>
-                <td>{{u.securityAnswer}}</td>
-                <td><button (click)="deleteByUsername(u)" >Delete</button></td>
+              <td (click)="goEditUser(u)" style="cursor: pointer"><u>{{u.userName}}</u></td>
+              <td>{{u.email}}</td>
+              <td>{{u.firstName}}</td>
+              <td>{{u.lastName}}</td>
+              <td>{{u.address}}</td>
+              <td>{{u.securityQuestion}}</td>
+              <td>{{u.securityAnswer}}</td>
+              <td><button (click)="deleteByUsername(u)">Delete</button></td>
             </tr>
           </table>
 

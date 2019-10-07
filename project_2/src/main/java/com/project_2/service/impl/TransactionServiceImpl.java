@@ -35,4 +35,11 @@ public class TransactionServiceImpl implements TransactionService {
 		return transactionDAO.findAll();
 	}
 
+
+	@Override
+	public List<Transaction> generalSearchTransaction(String search) {
+		// TODO Auto-generated method stub
+		return transactionDAO.generalSearchTransaction(search);
+	}
+
 }

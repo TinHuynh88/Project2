@@ -1,61 +1,45 @@
 <br>
-<br>
-<br>
 <section class="moduler wrapper_404">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="text-center">
-          <input type="text" class="form-control" id="search" name="search"
-            placeholder="Enter user Infomation like username, email, name, address, phone.. to search">
-          <hr>
-          <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
-          <button type="button" class="btn-info" name="userSearch"  id="showTable" >
-        <span class="glyphicon glyphicon-search"></span> Search
-      </button>
-     
-          <hr>
-        </div>
+        <h2><strong>Search Transaction</strong></h2>
+        <hr><br>
+        <form (ngSubmit)="searchTransaction()" #userForm="ngForm">
+          <div class="text-center">
+            <input type="text" class="form-control" id="search" name="search" [(ngModel)]="searchValue"
+              placeholder="Enter transaction Infomation like id, date, price... to search">
+            <hr>
+            <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
+            <button class="btn-info" name="userSearch" id="showTable">
+              <span class="glyphicon glyphicon-search"></span> Search
+            </button>
 
+            <hr>
+          </div>
+        </form>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="footer copyright">
           <table cellpadding="0" id="productTable" width=100%>
+
             <tr>
-              <!-- <th scope="col">Trans. ID</th>
-              <th scope="col">Trans. Date</th>
+              <th scope="col">Transaction ID</th>
+              <th scope="col">Transaction Date</th>
+              <th scope="col">Customer Username</th>
+              <th scope="col">Customer Name</th>
               <th scope="col">Total Price</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Product Price</th>
-              <th scope="col">Sold</th>              
-              <th scope="col">category</th>
-              <th scope="col">Delete</th> -->
-              <th scope="col">Product ID</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Release Date</th>              
-              <th scope="col">Category</th>
-              <th scope="col">System</th>
-              <th scope="col">Product Price</th>
-              <th scope="col">Quantity Sold</th>
-              <th scope="col">Total per Product</th>
+
             </tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr> 
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr class="tr1">
-                <td></td>
-              <td class="td1">Transaction ID:</td>
-              <td class="td2">0112</td>
-              
-              <td class="td1">Trans. Date:</td>
-              <td class="td2">01/01/2019</td>
-              <td></td>
-              <td class="td1">Total Price:</td>
-              <td class="td2">$100</td>
+            <tr *ngFor="let u of transList">
+              <td (click)="goProductList(u)" style="cursor: pointer"><u>{{u.transactionId}}</u></td>
+              <td>{{u.transactionDate}}</td>
+              <td>{{u.user.userName}}</td>
+              <td>{{u.user.firstName}} {{u.user.lastName}}</td>
+              <td>{{u.transactionPrice}}</td>
             </tr>
-            <tr></tr>
           </table>
 
 

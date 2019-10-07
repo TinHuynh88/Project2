@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project_2.model.Products;
 import com.project_2.model.Transaction;
 import com.project_2.model.User;
 import com.project_2.service.AdminUsersService;
+import com.project_2.service.ProductsService;
+import com.project_2.service.TransactionService;
 
 
 @CrossOrigin
@@ -30,6 +33,10 @@ import com.project_2.service.AdminUsersService;
 public class AdminController {
 	@Autowired
 	private AdminUsersService service;
+	@Autowired
+	private ProductsService productService;
+	@Autowired
+	private TransactionService transService;
 
 	@Autowired
 	private HttpServletRequest request;
@@ -90,6 +97,20 @@ public class AdminController {
 		service.adminUserDelete(username);
 	}
 	
+	@DeleteMapping("/product/{id}")
+	public void deleteUserByUsername(@PathVariable long id) {
+		System.out.println("Delete: "+id);
+//		Products p= new Products();
+//		p.setProductId(id);
+		productService.deleteProductById(id);
+	}
+	
+	@GetMapping("/searchProducts/{search}")
+	public List<Products> searchProducts(@PathVariable String search) {
+		System.out.println("General__Search: "+search);
+		return productService.getProductBySearch(search);
+	}
+	
 	@GetMapping("/adminUser/{username}")
 	public User getUserByUsername(@PathVariable String username) {
 	//	System.out.println("Delete: "+username);
@@ -97,7 +118,6 @@ public class AdminController {
 		return user;
 	}
 	
-	//Update need use query in DAO because of dont update password
 	@PutMapping("/adminUpdateUser")
 	public User updatetUserByUsername(@RequestBody User user) {
 		System.out.println("update: "+user);
@@ -110,11 +130,48 @@ public class AdminController {
 		return user;
 	}
 	
+	@PutMapping("/adminUpdateProduct")
+	public Products updatetProductById(@RequestBody Products product) {
+		System.out.println("update product: "+product);
+		try {
+			product = productService.updateProduct(product);
+		}catch(Exception e) {
+			System.out.println("Update error:"+e.getMessage());
+			product=null;
+		}
+		return product;
+	}
+	
 	@GetMapping("/adminLogout")
 	public void adminLogout() {
 		System.out.println("Admin Logout");
 		this.httpSession.invalidate();
 	}
+	
+	@GetMapping("/searchUsers/{search}")
+	public List<User> searchUsers(@PathVariable String search) {
+		System.out.println("General__Search: "+search);
+		return service.generalSearchUser(search);
+	}
+	
+	@GetMapping("/searchTransactions/{search}")
+	public List<Transaction> searchTransactions(@PathVariable String search) {
+		System.out.println("General__Search: "+search);
+		return transService.generalSearchTransaction(search);
+	}
+	
+	@PutMapping("/adminUpdatePassword")
+    public User updatetUserByPassword(@RequestBody User user) {
+        System.out.println("update: "+user);
+        try {
+            user.setPassword(encryptPassword(user.getPassword()));
+            user=service.updateUser(user);
+        }catch(Exception e) {
+            System.out.println("Update error:"+e.getMessage());
+            user=null;
+        }
+        return user;
+    }
 	
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();

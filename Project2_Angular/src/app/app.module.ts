@@ -27,11 +27,21 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { ProductPageComponent } from './product-page/product-page.component';
+
+import { PaymentComponent } from './payment/payment.component';
+
 import { AdminSearchTransactionsComponent } from './admin-search-transactions/admin-search-transactions.component';
 
 import { CreateProductComponent } from './create-product/create-product.component';
 
 import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.component';
+import { AdminEditProductComponent } from './admin-edit-product/admin-edit-product.component';
+
+import { ProductCardComponent } from './product-card/product-card.component';
+
+import { AdminProductsByTransIdComponent } from './admin-products-by-trans-id/admin-products-by-trans-id.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 
 
 @NgModule({
@@ -57,18 +67,20 @@ import { AdminEditUserComponent } from './admin-edit-user/admin-edit-user.compon
     AdminSearchUsersComponent,
     AdminSearchProductsComponent,
     ProductPageComponent,
+    ProductCardComponent,
+    PaymentComponent,
     AdminSearchTransactionsComponent,
-
     CreateProductComponent,
-
-    AdminEditUserComponent
-
+    AdminEditUserComponent,
+    AdminEditProductComponent,
+    AdminProductsByTransIdComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

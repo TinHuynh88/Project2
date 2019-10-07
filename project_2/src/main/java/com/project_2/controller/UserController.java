@@ -43,8 +43,6 @@ public class UserController {
 	
 	@Autowired
 	private OrderService orderService;
-	@Autowired
-	private ProductsService productService;
 	
 	@Autowired
 	private TransactionService transactionService;
@@ -58,6 +56,7 @@ public class UserController {
 	
 	private HttpSession httpSession;
 	
+	@GetMapping("/getUserSession")
 	public List<String> getSession(){
 		
 		try {
@@ -117,6 +116,11 @@ public class UserController {
 	public List<Products> getAllProducts() {
 		return productsService.getAllProducts();
 	}
+	
+	@GetMapping("/products/{id}")
+	public Products getProductsById(@PathVariable long productId) {
+		return productsService.getProductsById(productId);
+	}
 
 	
 	@PostMapping("/createTransaction")
@@ -140,17 +144,6 @@ public class UserController {
 		return orderService.createOrder(order);
 	}
     
-    @PostMapping("/createP")
-	public Products createP (@RequestBody Products product) {
-		// implement here
-		return productService.createProduct(product);
-	}
-    
-    @GetMapping("/productss")
-	public List<Products> getAllProductsss() {
-		
-		return productService.getAllProducts();
-	}
  ///////////////////////////////////////////   
     @GetMapping("/orders")
     public List<Order> getAllOrders() {
@@ -158,15 +151,20 @@ public class UserController {
     };
     
     @GetMapping("/ordersByTransactionId/{id}")
-    public List<Order> getOrdersByTransactionId(@PathVariable long transactionId) {
-        return orderService.getOrdersByTransactionId(transactionId);
+    public List<Order> getOrdersByTransactionId(@PathVariable String id) {
+    	System.out.println("TTTTDAO = "+id);
+        return orderService.getOrdersByTransactionId(Long.parseLong(id));
     };
     @GetMapping("/ordersByProductId/{id}")
     public List<Order> getOrdersByProductId(@PathVariable long productId) {
         return orderService.getOrdersByProductId(productId);
     };
        
-  
+    @GetMapping("/userLogout")
+	public void adminLogout() {
+		System.out.println("User Logout");
+		this.httpSession.invalidate();
+	}
     
 	public String encryptPassword(String password) {
 		StringBuffer message = new StringBuffer();
