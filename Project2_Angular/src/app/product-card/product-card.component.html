@@ -1,4 +1,24 @@
-<div>
+<div class="container productCardStyle">
+  <img src="{{ product.picture1 }}">
+  <h1>{{ product.productName }}</h1>
+  <h1>$ {{ product.productPrice }}</h1>
+  <h1>{{ product.system }}</h1>
+  <h1>{{ product.category }}</h1>
+  <h1>{{ product.quantity }}</h1>
+  <p>{{ outOfStockMessage }}</p>
+  <h1>{{ product.releaseDate }}</h1>
+  <div *ngIf="loggedIn">
+    <button (click)="addToCart( product.productId )" name="addToCart">Add to Cart</button>
+  </div>
+  <br>
+  <br>
+  <img src="{{ product.picture2 }}">
+  <br>
+  <br>
+  <img src="{{ product.picture3 }}">
+ </div>
+
+<!-- <div>
   <img src="{{ product.picture1 }}">
   <h1>{{ product.productName }}</h1>
   <h4>{{ product.productPrice }}</h4>
@@ -10,5 +30,5 @@
   <div *ngIf="loggedIn">
     <button (click)="addToCart( product.productId )" name="addToCart">Add to Cart</button>
   </div>
-</div>
+</div> -->
 
