@@ -1,17 +1,16 @@
 <br>
-<br>
-<br>
 <section class="moduler wrapper_404">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+        <h2><strong>Search User</strong></h2><hr><br>
         <form (ngSubmit)="searchUser()" #userForm="ngForm">
           <div class="text-center">
             <input type="text" class="form-control" id="search" name="search" [(ngModel)]="searchValue"
               placeholder="Enter user Infomation like username, email, name, address, phone.. to search">
-            <hr>
+            <br>
             <!-- <input class="btn btn-success pull-center" type="button" value="Search" id="showTable" onclick="callSearch();" /> -->
-            <button type="button" class="btn-info" name="userSearch" id="showTable">
+            <button  class="btn-info" name="userSearch" id="showTable">
               <span class="glyphicon glyphicon-search"></span> Search
             </button>
 
