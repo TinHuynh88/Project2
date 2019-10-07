@@ -6,6 +6,7 @@
   margin: 4rem .5rem .5rem .5rem;
   padding: .2rem;
   border: .5rem solid black;
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
   /* text-align: center; */
 }
 

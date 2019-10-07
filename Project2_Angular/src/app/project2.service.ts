@@ -73,7 +73,7 @@ export class Project2Service {
 
   public createOrder(order) {
     return this.http.post<Order>(this.createOrderUrl, order);
-    
+  }
   public adminLogin(user: User){
     return this.http.post<User>(this.adminLoginUrl, user);
   }

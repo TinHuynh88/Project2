@@ -28,7 +28,7 @@ public class Order implements Serializable{
 	
 
 	@ManyToOne(cascade = {CascadeType.ALL})
-	private Products products;
+	private Products product;
 
 	 
 	private int quantitySold;
