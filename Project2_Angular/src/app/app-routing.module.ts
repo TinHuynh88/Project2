@@ -28,30 +28,34 @@ import { PaymentComponent } from './payment/payment.component';
 import { AdminProductsByTransIdComponent } from './admin-products-by-trans-id/admin-products-by-trans-id.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
+import { ProductCardComponent } from './product-card/product-card.component';
+
 
 const routes: Routes = [
-  {path:'', redirectTo: 'home/products', pathMatch: 'full'},
-  {path:'home', redirectTo: 'home/products', pathMatch: 'full'},
-  {path:'home',component:HomeComponent, children: [    
-    {path:'products',component:ProductPageComponent},
-    {path:'login',component:LoginComponent},
-    {path:'logout',component:LogoutComponent},
-    {path:'logoutConfirm',component:LogoutConfirmComponent},
-    {path:'register',component:RegisterComponent},
-    {path:'registerSuccess',component:RegisterSuccessComponent},
-    {path:'forgotPassword',component:ForgotPasswordComponent},
-    {path:'changePassword',component:ChangePasswordComponent},
-    {path:'changePasswordSuccess',component:ChangePasswordSuccessComponent},
-    {path:'cart',component:CartComponent},
-    {path:'orderConfirmation',component:OrderConfirmationComponent},
-    {path:'orderSuccess',component:OrderSuccessComponent},
-    {path:'userAccount',component:UserAccountComponent},
-    {path:'userOrders',component:UserOrdersComponent},
-    {path:'createProduct',component:CreateProductComponent},
-    {path:'payment',component:PaymentComponent},
-    {path:'resetPassword',component:ResetPasswordComponent}
-
-  ]},
+  { path: '', redirectTo: 'home/products', pathMatch: 'full' },
+  { path: 'home', redirectTo: 'home/products', pathMatch: 'full' },
+  {
+    path: 'home', component: HomeComponent, children: [
+      { path: 'products', component: ProductPageComponent},
+      { path: 'products/:id', component: ProductCardComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+      { path: 'logoutConfirm', component: LogoutConfirmComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'registerSuccess', component: RegisterSuccessComponent },
+      { path: 'forgotPassword', component: ForgotPasswordComponent },
+      { path: 'changePassword', component: ChangePasswordComponent },
+      { path: 'changePasswordSuccess', component: ChangePasswordSuccessComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'orderConfirmation', component: OrderConfirmationComponent },
+      { path: 'orderSuccess', component: OrderSuccessComponent },
+      { path: 'userAccount', component: UserAccountComponent },
+      { path: 'userOrders', component: UserOrdersComponent },
+      { path: 'createProduct', component: CreateProductComponent },
+      { path: 'payment', component: PaymentComponent },
+       {path:'resetPassword',component:ResetPasswordComponent}
+    ]
+  },
   {path:'adminLogin', component:AdminLoginComponent},
     {path:'adminHome',component:AdminHomeComponent, children:[
       {path:'adminSearchUsers',component:AdminSearchUsersComponent},
@@ -62,7 +66,6 @@ const routes: Routes = [
     {path:'adminEditProduct',component:AdminEditProductComponent},
     {path:'adminProductByTransId', component:AdminProductsByTransIdComponent}
     ]}
-
 ];
 
 @NgModule({

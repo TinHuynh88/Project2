@@ -42,7 +42,7 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 
 	@Override
-	@Query
+//	@Query
 	public Products getProductsById(long productId) {
 		return productsDao.findById(productId).get();
 	}
